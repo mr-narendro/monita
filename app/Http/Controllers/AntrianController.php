@@ -20,7 +20,7 @@ class AntrianController extends Controller
         $cari = $request->idpel;
         $submit = $request->submit;
 
-        $jancok = DB::table("View_OptActive as voa")
+        $jancok = DB::connection('sqlsrv')->table("View_OptActive as voa")
             ->select(
                 "voa.NAMA_PELANGGAN",
                 "voa.ID_PELANGGAN",
@@ -44,7 +44,7 @@ class AntrianController extends Controller
     public function getData($idpel)
     {
 
-        $jancok = DB::table("View_OptActive as voa")
+        $jancok = DB::connection('sqlsrv')->table("View_OptActive as voa")
             ->select(
                 "voa.NAMA_PELANGGAN",
                 "voa.ID_PELANGGAN",

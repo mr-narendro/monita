@@ -20,7 +20,7 @@ class OpportunityController extends Controller
         $cari = $request->idpel;
         $submit = $request->submit;
 
-        $jancok = DB::table("Tbl_Opportunity as OPOR")
+        $jancok = DB::connection('sqlsrv')->table("Tbl_Opportunity as OPOR")
         ->select(
             "OPOR.NAMA_PELANGGAN",
             "OPOR.ORDERID",

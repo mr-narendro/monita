@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlsrv'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -86,6 +86,19 @@ return [
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+        ],
+
+        'dbo' => [
+            'driver' => 'sqlsrv',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST_DBO', 'localhost'),
+            'port' => env('DB_PORT_DBO', '1433'),
+            'database' => env('DB_DATABASE_DBO', 'forge'),
+            'username' => env('DB_USERNAME_DBO', 'forge'),
+            'password' => env('DB_PASSWORD_DBO', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

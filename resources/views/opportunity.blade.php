@@ -90,7 +90,7 @@
                         @endforeach
                     @endif
                 </tbody>
-                <tfoot>
+                {{-- <tfoot>
                     <tr>
                         <th>NAMA PELANGGAN</th>
                         <th>ORDER ID</th>
@@ -102,7 +102,7 @@
                         <th>BATAL</th>
                         <th>TGL BATAL</th>
                     </tr>
-                </tfoot>
+                </tfoot> --}}
             </table>
         </div>
         <br>

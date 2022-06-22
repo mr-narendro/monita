@@ -24,7 +24,13 @@ Route::prefix('opportunity')->group(function () {
 });
 
 Route::prefix('antrian')->group(function () {
-    Route::get('/', 'AntrianController@index')->name('r');
+    Route::get('/', 'AntrianController@index')->name('s');
     Route::post('/', 'AntrianController@cari');
     Route::get('/{idpel}', 'AntrianController@getData');
+});
+
+Route::prefix('spa')->group(function () {
+    Route::get('/', 'SpaController@index')->name('t');
+    Route::post('/', 'SpaController@cari');
+    Route::get('/{idpel}', 'SpaController@getData');
 });

@@ -72,8 +72,8 @@
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Start Bootstrap
+            <div class="small">Created By</div>
+            KH. Khalid Habib
         </div>
     </nav>
 </div>
