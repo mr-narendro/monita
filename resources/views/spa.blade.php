@@ -15,12 +15,14 @@
             </form>
 
             <br>
-            {{-- <p>
-                @if (isset($e))
-                    {{ $e }}
-                @endif
-            </p> --}}
-            <table id="TabelAntri" class="table table-striped table-hover">
+            <div class="alert alert-warning" role="alert">
+               <b>NOTE :</b>
+               <span>
+                Apabila salah satu ID PELANGGAN sudah ada <b>NO SPA</b>,
+                tidak perlu melakukan update status atau klik ID Pelanggan / CRM ID.
+               </span>
+            </div>
+            <table id="TabelAntri" class="table table-striped table-hover" data-toggle="tooltip" title="Jangan klik data ID Pelanggan kalau salah satunya sudah ada NO SPA">
                 <thead>
                     <tr>
                         <th>ID PELANGGAN</th>
@@ -33,7 +35,7 @@
                     @if (isset($e))
                         @foreach ($e as $o)
                             <tr>
-                                <td>{{ $o->new_IDPEL }}</td>
+                                <td>{!! $o->new_IDPEL !!}</td>
                                 <td>{{ $o->no_pa }}</td>
                                 <td>{{ $o->bandwidth }}</td>
                                 <td>{{ $o->CreatedOn }}</td>
@@ -41,14 +43,6 @@
                         @endforeach
                     @endif
                 </tbody>
-                {{-- <tfoot>
-                    <tr>
-                        <th>ID PELANGGAN</th>
-                        <th>NO PA</th>
-                        <th>BANDWIDTH</th>
-                        <th>CREATED ON</th>
-                    </tr>
-                </tfoot> --}}
             </table>
         </div>
         <br>

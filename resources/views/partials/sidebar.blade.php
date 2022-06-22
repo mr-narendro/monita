@@ -22,7 +22,7 @@
                         <a class="nav-link" href="/spa/">Cek No SPA (23.193)</a>
                     </nav>
                 </div>
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
                     aria-expanded="false" aria-controls="collapsePages">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     Pages
@@ -68,7 +68,7 @@
                 <a class="nav-link" href="tables.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Tables
-                </a>
+                </a> --}}
             </div>
         </div>
         <div class="sb-sidenav-footer">

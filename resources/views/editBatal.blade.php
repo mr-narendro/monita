@@ -68,7 +68,7 @@
                                 @endif
                                 @if ($status == 2)
                                     <td>
-                                       {!! $o->CRMID !!}
+                                       {{ $o->CRMID }}
                                     </td>
                                     <td data-toggle='tooltip' title='Pelanggan belum membayar'>
                                         <b>{{ $status }}</b>

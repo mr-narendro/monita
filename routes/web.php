@@ -33,4 +33,5 @@ Route::prefix('spa')->group(function () {
     Route::get('/', 'SpaController@index')->name('t');
     Route::post('/', 'SpaController@cari');
     Route::get('/{idpel}', 'SpaController@getData');
+    Route::get('/editStatus/{idpel}','SpaController@edit');
 });

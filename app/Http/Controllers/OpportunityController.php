@@ -41,10 +41,21 @@ class OpportunityController extends Controller
         ])
         ->get();
 
+        foreach ($jancok as $k) {
+            $a = $k->TGL_LUNAS;
+            $b = $k->TGL_BATAL;
+            $c = $k->BATAL;
+
+            if ($a != "" && $b != "" && $c != "") {
+                $k->CRMID = "<a href=''>".$k->CRMID."</a>";
+            }
+
+        }
+
         $title = 'Opportunity';
         // return view('/opportunity', ['e'=>$jancok,'title'=>$title]);
-        $a =  json_encode($jancok);
-        $b =  json_decode($jancok);
+        // $a =  json_encode($jancok);
+        // $b =  json_decode($jancok);
         return view('/opportunity', ['e'=>$jancok,'title'=>$title]);
         // echo json_decode($a);
 
