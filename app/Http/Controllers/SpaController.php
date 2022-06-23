@@ -71,6 +71,7 @@ class SpaController extends Controller
     public function edit($idpel)
     {
 
+
          $data = DB::connection('sqlsrv')->select(
             DB::raw("SELECT * FROM Tbl_Opportunity
             WHERE ID_PELANGGAN = '".$idpel."' OR CRMID = '".$idpel."'")
@@ -78,6 +79,26 @@ class SpaController extends Controller
 
          $title = "SPA | EDIT STATUS";
          return view('/editStatus', ['data'=>$data, 'title'=>$title]);
+    }
+
+    public function update(Request $request)
+    {
+        $a = $request->idpel;
+        $b = $request->status;
+
+        DB::connection('sqlsrv')->select(
+            DB::raw("UPDATE Tbl_Opportunity set STATUS = ".$b." where CRMID = '".$a."'")
+        );
+
+
+        echo "<script>
+            alert('data berhasil di update')
+        </script>";
+
+
+        $status = "Data telah diupdate";
+        $title = "SPA | EDIT STATUS";
+        return view('spa', ['status'=>$status,'title'=>$title]);
     }
 
 }
