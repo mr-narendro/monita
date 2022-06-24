@@ -29,12 +29,6 @@ class SpaController extends Controller
             WHERE ab.new_IDPEL IN ('" . $cari . "')")
         );
 
-        foreach ($jancok as $k) {
-            $b = $k->no_pa;
-            if ($b == "") {
-                $k->new_IDPEL = "<a href='/spa/editStatus/".$k->new_IDPEL."'>".$k->new_IDPEL."</a>";
-            }
-        }
 
         $title = 'No SPA';
         // return view('/opportunity', ['e'=>$jancok,'title'=>$title]);
@@ -56,13 +50,6 @@ class SpaController extends Controller
 
             );
 
-        foreach ($jancok as $k) {
-        $b = $k->no_pa;
-        if ($b == "") {
-        $k->new_IDPEL = "<a href='/spa/editStatus/".$k->new_IDPEL."'>".$k->new_IDPEL."</a>";
-        }
-        }
-
         $title = 'No SPA';
         // return view('/opportunity', ['e'=>$jancok,'title'=>$title]);
         return view('/spa', ['e' => $jancok, 'title' => $title]);
@@ -81,18 +68,17 @@ class SpaController extends Controller
          return view('/editStatus', ['data'=>$data, 'title'=>$title]);
     }
 
-    public function update(Request $request)
+    public function update($idpel)
     {
-        $a = $request->idpel;
-        $b = $request->status;
-
+        // $a = $request->idpel;
+        // dd($idpel);
         DB::connection('sqlsrv')->select(
-            DB::raw("UPDATE Tbl_Opportunity set STATUS = ".$b." where CRMID = '".$a."'")
+            DB::raw("UPDATE Tbl_Opportunity set STATUS = 0 where CRMID = '".$idpel."'")
         );
 
 
         echo "<script>
-            alert('data berhasil di update')
+            alert('PA berhasil di naikan')
         </script>";
 
 

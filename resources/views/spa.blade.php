@@ -19,16 +19,18 @@
                <b>NOTE :</b>
                <span>
                 Apabila salah satu ID PELANGGAN sudah ada <b>NO SPA</b>,
-                tidak perlu melakukan update status atau klik ID Pelanggan / CRM ID.
+                tidak perlu klik tombol naikan PA.
                </span>
             </div>
-            <table id="TabelAntri" class="table table-striped table-hover" data-toggle="tooltip" title="Jangan klik data ID Pelanggan kalau salah satunya sudah ada NO SPA">
+            <table id="TabelAntri" class="table table-striped table-hover" data-toggle="tooltip"
+            title="Jangan klik tombol 'NAIKAN PA' apabila salah satu ID Pelanggan sudah ada NO SPA">
                 <thead>
                     <tr>
                         <th>ID PELANGGAN</th>
                         <th>NO SPA</th>
                         <th>BANDWIDTH</th>
                         <th>CREATED ON</th>
+                        <th>AKSI</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +41,11 @@
                                 <td>{{ $o->no_pa }}</td>
                                 <td>{{ $o->bandwidth }}</td>
                                 <td>{{ $o->CreatedOn }}</td>
+                                <td>
+                                    @if ($o->no_pa == "")
+                                        <a href='/spa/{{ $o->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>"
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                     @endif

@@ -33,7 +33,7 @@ Route::prefix('spa')->group(function () {
     Route::get('/', 'SpaController@index')->name('t');
     Route::post('/', 'SpaController@cari');
     Route::get('/{idpel}', 'SpaController@getData');
-    Route::get('/editStatus/{idpel}','SpaController@edit');
-    Route::post('/editStatus/update','SpaController@update');
+    // Route::get('/{idpel}','SpaController@edit');
+    Route::get('/{idpel}','SpaController@update');
 
 });
