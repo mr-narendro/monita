@@ -31,9 +31,10 @@ Route::prefix('antrian')->group(function () {
 
 Route::prefix('spa')->group(function () {
     Route::get('/', 'SpaController@index')->name('t');
-    Route::post('/', 'SpaController@cari');
-    Route::get('/{idpel}', 'SpaController@getData');
+    Route::post('/cari', 'SpaController@cari');
+    Route::get('/getData/{idpel}', 'SpaController@getData');
     // Route::get('/{idpel}','SpaController@edit');
     Route::get('/update/{idpel}','SpaController@update');
-
+    Route::get('/spaSync', 'SpaController@cek');
+    Route::post('spaSync/cekStaging', 'SpaController@cekStaging');
 });

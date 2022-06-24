@@ -3,11 +3,11 @@
 @section('container')
     <main>
         <div class="container px-4">
-            <h1 class="mt-4">Opportunity</h1>
+            <h1 class="mt-4">Cek Sync SPA Staging</h1>
             <hr>
 
             <b>Masuka No SPA</b>
-            <form method="POST" action="/spaSyncStaging" id="search-form" class="form-inline" role="form">
+            <form method="POST" action="/spa/spaSync/cekStaging" id="search-form" class="form-inline" role="form">
                 @csrf
                 <input type="text" name="spa" id="" class="form-control form-control-inline" required>
                 <button type="submit" value="cari" name="submit" class="btn btn-info form-control-inline">Cari
@@ -23,72 +23,29 @@
             <table id="TabelOpor" class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>swo_ProjectActivatID</th>
-                        <th>new_IDPEL</th>
-                        <th>product</th>
-                        <th>swo_InternOrderID</th>
-                        <th>CreatedOn</th>
-                        <th>ProjectInitiation</th>
-                        <th>Sync_Staging</th>
+                        <th>Project Activat ID</th>
+                        <th>ID PEL</th>
+                        <th>PRODUCT</th>
+                        <th>Intern Order ID</th>
+                        <th>Created On</th>
+                        <th>Project Initiation</th>
+                        <th>Sync Staging</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @if (isset($e))
+                    @if (isset($e))
                         @foreach ($e as $o)
                             <tr>
-                                <td>
-                                    {{ $o->NAMA_PELANGGAN }}
-                                </td>
-                                <td>
-                                    {{ $o->ORDERID }}
-                                </td>
-                                <td>
-                                    {{ $o->ID_PELANGGAN }}
-                                </td>
-                                @php
-                                    $status = $o->STATUS;
-                                @endphp
-                                @if ($status == 0)
-                                    <td>
-                                        <a href="/antrian/{{ $o->CRMID }}">{{ $o->CRMID }}</a>
-                                    </td>
-                                    <td data-toggle='tooltip' title='Silahkan cek antrian'>
-                                        <b>{{ $status }}</b>
-                                    </td>
-                                @elseif ($status == 1)
-                                    <td>
-                                        <a href="/spa/{{ $o->CRMID }}">{{ $o->CRMID }}</a>
-                                    </td>
-                                    <td data-toggle='tooltip' title='Silahkan cek di crm'>
-                                        <b>{{ $status }}</b>
-                                    </td>
-                                @elseif ($status == 2)
-                                    <td>
-                                        {!! $o->CRMID !!}
-                                    </td>
-                                    <td data-toggle='tooltip' title='Pelanggan belum membayar'>
-                                        <b>{{ $status }}</b>
-                                    </td>
-                                @else
-                                    <td>{{ $o->CRMID }}</td>
-                                    <td>{{ $status }}</td>
-                                @endif
-
-                                <td>
-                                    {{ $o->TGL_LUNAS }}
-                                </td>
-                                <td>
-                                    {{ $o->KODE_VA }}
-                                </td>
-                                <td>
-                                    {{ $o->BATAL }}
-                                </td>
-                                <td>
-                                    {{ $o->TGL_BATAL }}
-                                </td>
+                                <td>{{ $o->swo_ProjectActivatID }}</td>
+                                <td>{{ $o->new_IDPEL }}</td>
+                                <td>{{ $o->product }}</td>
+                                <td>{{ $o->swo_InternOrderID }}</td>
+                                <td>{{ $o->CreatedOn }}</td>
+                                <td>{{ $o->ProjectInitiation }}</td>
+                                <td>{{ $o->Sync_Staging }}</td>
                             </tr>
                         @endforeach
-                    @endif --}}
+                    @endif
                 </tbody>
                 {{-- <tfoot>
                     <tr>

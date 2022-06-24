@@ -7,7 +7,7 @@
             <hr>
 
             <b>Masukan ID Pelanggan / CRM ID</b>
-            <form method="POST" action="/spa" id="search-form" class="form-inline" role="form">
+            <form method="POST" action="/spa/cari" id="search-form" class="form-inline" role="form">
                 @csrf
                 <input type="text" name="idpel" id="" class="form-control form-control-inline">
                 <button type="submit" value="cari" name="submit" class="btn btn-info form-control-inline">Cari
@@ -30,15 +30,7 @@
                         <th>NO SPA</th>
                         <th>BANDWIDTH</th>
                         <th>CREATED ON</th>
-                        @if (isset($e))
-                            @foreach ($e as $i)
-                                @if ($i->no_pa == '')
-                                    <th>AKSI</th>
-                                @else
-                                    <th style="display: none;">AKSI</th>
-                                @endif
-                            @endforeach
-                        @endif
+                        <th>AKSI</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,17 +38,14 @@
                         @foreach ($e as $o)
                             <tr>
                                 <td>{{ $o->new_IDPEL }}</td>
-                                <td>{!! $o->no_pa !!}</td>
+                                <td>{!!$o->no_pa !!}</td>
                                 <td>{{ $o->bandwidth }}</td>
                                 <td>{{ $o->CreatedOn }}</td>
-                                    @if ($o->no_pa == '')
-                                        @if ($o->no_pa != '')
-                                           <td>
-                                        <a href='/spa/update/{{ $o->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>
-                                    </td>
-                                        @endif
-
+                                <td>
+                                    @if ( isset($o->no_pa) == '')
+                                      <a href='/spa/update/{{ $o->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>
                                     @endif
+                                </td>
                             </tr>
                         @endforeach
                     @endif

@@ -62,7 +62,7 @@
                                     </td>
                                 @elseif ($status == 1)
                                     <td>
-                                        <a href="/spa/{{ $o->CRMID }}">{{ $o->CRMID }}</a>
+                                        <a href="/spa/getData/{{ $o->CRMID }}">{{ $o->CRMID }}</a>
                                     </td>
                                     <td data-toggle='tooltip' title='Silahkan cek di crm'>
                                         <b>{{ $status }}</b>

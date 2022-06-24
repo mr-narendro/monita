@@ -33,7 +33,7 @@ class SpaController extends Controller
 
             $title = 'No SPA';
             // return view('/opportunity', ['e'=>$jancok,'title'=>$title]);
-            return view('/spa', ['e' => $jancok, 'title' => $title]);
+            return view('spa', ['e' => $jancok, 'title' => $title]);
         }
 
 
@@ -92,18 +92,18 @@ class SpaController extends Controller
 
     }
 
-    public function edit($idpel)
-    {
+    // public function edit($idpel)
+    // {
 
 
-        $data = DB::connection('sqlsrv')->select(
-            DB::raw("SELECT * FROM Tbl_Opportunity
-            WHERE ID_PELANGGAN = '" . $idpel . "' OR CRMID = '" . $idpel . "'")
-        );
+    //     $data = DB::connection('sqlsrv')->select(
+    //         DB::raw("SELECT * FROM Tbl_Opportunity
+    //         WHERE ID_PELANGGAN = '" . $idpel . "' OR CRMID = '" . $idpel . "'")
+    //     );
 
-        $title = "SPA | EDIT STATUS";
-        return view('/editStatus', ['data' => $data, 'title' => $title]);
-    }
+    //     $title = "SPA | EDIT STATUS";
+    //     return view('/editStatus', ['data' => $data, 'title' => $title]);
+    // }
 
     public function update($idpel)
     {
@@ -135,5 +135,24 @@ class SpaController extends Controller
 
 
         $status = "Data telah diupdate";
+    }
+
+    public function cek()
+    {
+        return view('spaSync', ['title' => 'No SPA']);
+        // dd('jancok');
+    }
+
+    public function cekStaging(Request $request)
+    {
+        $data = $request->spa;
+
+        $jancok = DB::connection('dbo')
+        ->select(
+        DB::raw("SELECT * FROM Cek_Validasi_Antrian_PI cvap where swo_ProjectActivatID in ('".$data."')")
+        );
+
+        return view('spaSync', ['e'=>$jancok, 'title' => 'CEK SPA STAGING']);
+    // dd('jancok');
     }
 }
