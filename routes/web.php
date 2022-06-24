@@ -34,6 +34,6 @@ Route::prefix('spa')->group(function () {
     Route::post('/', 'SpaController@cari');
     Route::get('/{idpel}', 'SpaController@getData');
     // Route::get('/{idpel}','SpaController@edit');
-    Route::get('/{idpel}','SpaController@update');
+    Route::get('/update/{idpel}','SpaController@update');
 
 });

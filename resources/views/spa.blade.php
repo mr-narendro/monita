@@ -43,7 +43,7 @@
                                 <td>{{ $o->CreatedOn }}</td>
                                 <td>
                                     @if ($o->no_pa == "")
-                                        <a href='/spa/{{ $o->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>"
+                                        <a href='/spa/update/{{ $o->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>"
                                     @endif
                                 </td>
                             </tr>
