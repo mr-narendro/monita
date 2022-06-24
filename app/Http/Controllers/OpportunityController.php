@@ -18,10 +18,14 @@ class OpportunityController extends Controller
     public function cari(Request $request)
     {
         $cari = $request->idpel;
-        $submit = $request->submit;
+        $id = $request->id;
 
-        $jancok = DB::connection('sqlsrv')->table("Tbl_Opportunity as OPOR")
-        ->select(
+        $submit = $request->submit;
+        if($id == "idpln")
+        {
+            // echo "IDPLN";
+            $jancok = DB::connection('sqlsrv')->table("Tbl_Opportunity as OPOR")
+            ->select(
             "OPOR.NAMA_PELANGGAN",
             "OPOR.ORDERID",
             "OPOR.CRMID",
@@ -31,22 +35,38 @@ class OpportunityController extends Controller
             "OPOR.KODE_VA",
             "OPOR.BATAL",
             "OPOR.TGL_BATAL"
-        )
-        ->where([
-                ['OPOR.ID_PELANGGAN', '=', $cari]
+            )
+            ->where([
+            ['OPOR.ID_PELANGGAN', '=', $cari]
 
-        ])
-        ->orWhere([
+            ])
+            ->get();
+        }elseif ($id == "crmid") {
+            // echo "CRMID";
+            $jancok = DB::connection('sqlsrv')->table("Tbl_Opportunity as OPOR")
+            ->select(
+            "OPOR.NAMA_PELANGGAN",
+            "OPOR.ORDERID",
+            "OPOR.CRMID",
+            "OPOR.ID_PELANGGAN",
+            "OPOR.STATUS",
+            "OPOR.TGL_LUNAS",
+            "OPOR.KODE_VA",
+            "OPOR.BATAL",
+            "OPOR.TGL_BATAL"
+            )
+            ->where([
             ['OPOR.CRMID', '=', $cari]
-        ])
-        ->get();
+
+            ])
+            ->get();
+        }
+
 
         foreach ($jancok as $k) {
-            $a = $k->TGL_LUNAS;
-            $b = $k->TGL_BATAL;
-            $c = $k->BATAL;
+            $a = $k->STATUS;
 
-            if ($a != "" && $b != "" && $c != "") {
+            if ($a == 2) {
                 $k->CRMID = "<a href=''>".$k->CRMID."</a>";
             }
 

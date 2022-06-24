@@ -37,8 +37,8 @@
                     @if (isset($e))
                         @foreach ($e as $o)
                             <tr>
-                                <td>{!! $o->new_IDPEL !!}</td>
-                                <td>{{ $o->no_pa }}</td>
+                                <td>{{ $o->new_IDPEL }}</td>
+                                <td>{!! $o->no_pa !!}</td>
                                 <td>{{ $o->bandwidth }}</td>
                                 <td>{{ $o->CreatedOn }}</td>
                                 <td>

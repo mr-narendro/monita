@@ -6,10 +6,13 @@
             <h1 class="mt-4">Opportunity</h1>
             <hr>
 
-            <b>Masukan ID Pelanggan / CRM ID</b>
             <form method="POST" action="/opportunity" id="search-form" class="form-inline" role="form">
                 @csrf
-                <input type="text" name="idpel" id="" class="form-control form-control-inline">
+                <select name="id" class="form-select form-control-inline" required>
+                    <option value="idpln">PLN ID</option>
+                    <option value="crmid">CRM ID</option>
+                </select>
+                <input type="text" name="idpel" id="" class="form-control form-control-inline" required>
                 <button type="submit" value="cari" name="submit" class="btn btn-info form-control-inline">Cari
                     Data</button>
             </form>
@@ -57,23 +60,26 @@
                                     <td data-toggle='tooltip' title='Silahkan cek antrian'>
                                         <b>{{ $status }}</b>
                                     </td>
-                                @endif
-                                @if ($status == 1)
+                                @elseif ($status == 1)
                                     <td>
                                         <a href="/spa/{{ $o->CRMID }}">{{ $o->CRMID }}</a>
                                     </td>
                                     <td data-toggle='tooltip' title='Silahkan cek di crm'>
                                         <b>{{ $status }}</b>
                                     </td>
-                                @endif
-                                @if ($status == 2)
+
+                                @elseif ($status == 2)
                                     <td>
                                        {!! $o->CRMID !!}
                                     </td>
                                     <td data-toggle='tooltip' title='Pelanggan belum membayar'>
                                         <b>{{ $status }}</b>
                                     </td>
+                                @else
+                                    <td>{{ $o->CRMID }}</td>
+                                    <td>{{ $status }}</td>
                                 @endif
+
                                 <td>
                                     {{ $o->TGL_LUNAS }}
                                 </td>
