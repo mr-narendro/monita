@@ -46,7 +46,7 @@ class SpaController extends Controller
                 // dd($koko);
                 foreach($koko as $k)
                 {
-                    $k->no_pa2 = "<a href='/spa/update/{{ $k->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>";
+                    $k->no_pa2 = "<a href='/spa/update/$k->new_IDPEL' class='btn btn-success'>NAIKAN PA</a>";
                 }
 
                 $title = 'No SPA';
