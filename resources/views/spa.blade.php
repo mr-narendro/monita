@@ -50,9 +50,12 @@
                                 <td>{{ $o->bandwidth }}</td>
                                 <td>{{ $o->CreatedOn }}</td>
                                     @if ($o->no_pa == '')
-                                    <td>
-                                        <a href='/spa/update/{{ $o->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>"
+                                        @if ($o->no_pa != '')
+                                           <td>
+                                        <a href='/spa/update/{{ $o->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>
                                     </td>
+                                        @endif
+
                                     @endif
                             </tr>
                         @endforeach

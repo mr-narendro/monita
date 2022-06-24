@@ -20,6 +20,7 @@
                         <a class="nav-link" href="/opportunity/">Cek Opportunity (23.175)</a>
                         <a class="nav-link" href="/antrian/">Cek Antrian(23.175)</a>
                         <a class="nav-link" href="/spa/">Cek No SPA (23.193)</a>
+                        <a class="nav-link" href="/spa/cek/">Cek Sync SPA Staging (23.193)</a>
                     </nav>
                 </div>
                 {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
