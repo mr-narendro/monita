@@ -38,14 +38,17 @@
                         @foreach ($e as $o)
                             <tr>
                                 <td>{{ $o->new_IDPEL }}</td>
-                                <td>{!!$o->no_pa !!}</td>
+                                <td>{{ $o->no_pa }}</td>
                                 <td>{{ $o->bandwidth }}</td>
                                 <td>{{ $o->CreatedOn }}</td>
-                                <td>
-                                    @if ( isset($o->no_pa) == '')
-                                      <a href='/spa/update/{{ $o->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>
-                                    @endif
-                                </td>
+                                <td>{!! $o->no_pa2 !!}</td>
+
+                                    {{-- @if ($loop->first != '')
+                                        <b>-</b>
+                                    @else
+                                        <a href='/spa/update/{{ $o->new_IDPEL }}' class='btn btn-success'>NAIKAN PA</a>
+                                    @endif --}}
+
                             </tr>
                         @endforeach
                     @endif

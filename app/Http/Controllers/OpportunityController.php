@@ -63,14 +63,14 @@ class OpportunityController extends Controller
         }
 
 
-        foreach ($jancok as $k) {
-            $a = $k->STATUS;
+        // foreach ($jancok as $k) {
+        //     $a = $k->STATUS;
 
-            if ($a == 2) {
-                $k->CRMID = "<a href=''>".$k->CRMID."</a>";
-            }
+        //     if ($a == 2) {
+        //         $k->CRMID = "<a href=''>".$k->CRMID."</a>";
+        //     }
 
-        }
+        // }
 
         $title = 'Opportunity';
         // return view('/opportunity', ['e'=>$jancok,'title'=>$title]);
