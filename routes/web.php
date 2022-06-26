@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 Route::prefix('opportunity')->group(function () {
     Route::get('/', 'OpportunityController@index')->name('r');
-    Route::post('/', 'OpportunityController@cari');
-    Route::get('/cari', 'OpportunityController@cari');
+    // Route::post('/getAll', 'OpportunityController@getAll')->name('data');
+    Route::any('/setData/{idpel}', 'OpportunityController@setData')->name('getData');
 });
 
 Route::prefix('antrian')->group(function () {
