@@ -137,13 +137,24 @@ class StagingController extends Controller
                     foreach($opor as $o){
                         $kode_produk_tv = $o->KODE_PRODUK_TV;
                         $harga_tv = $o->HARGA_PRODUK_TV;
-                        dd($kode_produk_tv, $harga_tv);
+                        $kode_produk_internet = $o->KODE_PRODUK_INTERNET;
+                        $harga_internet = $o->HARGA_PRODUK_INTERNET;
+                        // dd($kode_produk_tv, $harga_tv);
                         $add_pli = DB::connection('sqlsrv')->statement(
                             "EXEC SP_CRM_INSERTPLI @ID_PELANGGAN = '".$idpel."',
-                            @KODE_PRODUK_INTERNET = 'STRNET', @KODE_PRODUK_TV = '".$kode_produk_tv."',
-                            @HARGA_INTERNET = '145000', @HARGA_TV= '".$harga_tv."'"
+                            @KODE_PRODUK_INTERNET = '".$kode_produk_internet."', @KODE_PRODUK_TV = '".$kode_produk_tv."',
+                            @HARGA_INTERNET = '".$harga_internet."', @HARGA_TV= '".$harga_tv."'"
                         );
+
                         if($add_pli){
+                            DB::connection('dbo')->update(DB::raw("UPDATE a7 SET
+                            a7.swo_ProductLineItemProjectActivatioId = c7.swo_ProjectActivationId FROM
+                            swo_productlineitemBase a7
+                            LEFT JOIN swo_ProjectActivationBase c7 ON c7.swo_serviceid = a7.new_serviceid
+                            LEFT JOIN AccountBase b7 ON b7.AccountId = c7.swo_CustomerName
+                            WHERE b7.New_IDPEL = '".$idpel."'"));
+
+
                             DB::connection('sqlsrv')->statement(
                                 "EXEC SP_UPDATE_PRODUCT_BW @_NOPA =
                                 '".$pa."'"
@@ -154,9 +165,11 @@ class StagingController extends Controller
                             </script>";
 
                             return redirect()->route('staging.index');
+                        }else{
+                            echo "gagal insert";
                         }
                     }
-                }else{
+                }elseif($pli != ''){
                     DB::connection('sqlsrv')->statement(
                     "EXEC SP_UPDATE_PRODUCT_BW @_NOPA =
                     '".$pa."'"
