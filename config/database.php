@@ -43,14 +43,14 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysql' => [
+        'staging' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('DB_HOST_STAGING', '127.0.0.1'),
+            'port' => env('DB_PORT_STAGING', '13306'),
+            'database' => env('DB_DATABASE_STAGING', 'forge'),
+            'username' => env('DB_USERNAME_STAGING', 'forge'),
+            'password' => env('DB_PASSWORD_STAGING', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

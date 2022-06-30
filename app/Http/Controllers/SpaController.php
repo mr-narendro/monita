@@ -203,7 +203,39 @@ class SpaController extends Controller
         DB::raw("SELECT * FROM Cek_Validasi_Antrian_PI cvap where swo_ProjectActivatID in ('".$data."')")
         );
 
+        foreach ($jancok as $j) {
+            $status_sync = $j->Sync_Staging;
+            if($status_sync > 0){
+                $j->swo_ProjectActivatID = "<a
+                    href='updateStatus/".base64_encode($j->swo_ProjectActivatID)."'>".$j->swo_ProjectActivatID."</a>";
+            }
+        }
+
+
         return view('spaSync', ['e'=>$jancok, 'title' => 'CEK SPA STAGING']);
     // dd('jancok');
+    }
+
+    public function updateStatus($no_pa)
+    {
+
+        $pa = base64_decode($no_pa);
+        $update = DB::connection('dbo')->update(
+            DB::raw("UPDATE i SET i.Sync_Staging = NULL FROM swo_projectinitiationBase i
+            LEFT JOIN swo_projectactivationBase a ON a.swo_projectactivationId = i.swo_ProjectActivationID WHERE
+            a.swo_ProjectActivatID = '".$pa."'")
+        );
+
+        if($update){
+            echo "<script>
+                alert('update sync staging berhasil');
+                window.history.back();
+            </script>";
+        }else{
+            echo "<script>
+                alert('update sync staging gagal');
+            </script>";
+        }
+
     }
 }
