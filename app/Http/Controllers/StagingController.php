@@ -112,7 +112,7 @@ class StagingController extends Controller
         $jenis = $request->jenis;
         $data = $request->data;
         if ($jenis == 'bandwidth' || $jenis == 'produk') {
-            DB::connection('sqlsrv')->select("EXEC SP_UPDATE_PRODUCT_BW @_NOPA = '" . $data . "'
+            DB::connection('sqlsrv')->select("SET NOCOUNT ON; EXEC SP_UPDATE_PRODUCT_BW @_NOPA = '" . $data . "'
             ");
 
                 echo "<script>alert('berhasil insert data')</script>";
@@ -120,7 +120,7 @@ class StagingController extends Controller
                 return redirect()->route('staging.index');
 
         } elseif ($jenis == 'no_io') {
-            DB::connection('sqlsrv')->select("EXEC SP_CRM_INSERTIO @ID_PELANGGAN = '" . $data . "' ");
+            DB::connection('sqlsrv')->select("SET NOCOUNT ON; EXEC SP_CRM_INSERTIO @ID_PELANGGAN = '" . $data . "' ");
 
                 echo "<script>
                         alert('berhasil insert data io')
@@ -129,7 +129,7 @@ class StagingController extends Controller
                 return redirect()->route('staging.index');
 
         } elseif ($jenis == 'no_pi') {
-            DB::connection('sqlsrv')->select("EXEC SP_CRM_INSERTPI @ID_PELANGGAN = '" . $data . "' ");
+            DB::connection('sqlsrv')->select("SET NOCOUNT ON; EXEC SP_CRM_INSERTPI @ID_PELANGGAN = '" . $data . "' ");
 
                 echo "<script>
                     alert('berhasil insert data pi')
