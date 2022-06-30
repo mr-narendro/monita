@@ -112,15 +112,70 @@ class StagingController extends Controller
         $jenis = $request->jenis;
         $data = $request->data;
         if ($jenis == 'bandwidth' || $jenis == 'produk') {
-            DB::connection('sqlsrv')->select("SET NOCOUNT ON; EXEC SP_UPDATE_PRODUCT_BW @_NOPA = '" . $data . "'
-            ");
+            $pli = DB::connection('dbo')->select(
+                DB::raw("SELECT spb.swo_ProjectActivatID as no_pa, ab.new_IDPEL as idpel, pli.swo_id AS PLI
+                FROM swo_projectactivationBase spb
+                LEFT JOIN AccountBase ab on ab.AccountId = spb.swo_CustomerName
+                LEFT JOIN swo_productlineitemBase pli on pli.swo_ProductLineItemProjectActivatioId =
+                spb.swo_projectactivationId
+                where spb.swo_ProjectActivatID IN ('".$data."')")
+            );
+            // dd($pli);
+            foreach($pli as $p)
+            {
 
-                echo "<script>alert('berhasil insert data')</script>";
+                $pli = $p->PLI;
+                $idpel = $p->idpel;
+                $pa = $p->no_pa;
+                if($pli == ''){
+                    //cek opportunity
+                    $opor = DB::connection('sqlsrv')->select(
+                        DB::raw("SELECT DISTINCT * FROM Tbl_Opportunity WHERE ID_PELANGGAN = '".$idpel."' OR CRMID =
+                        '".$idpel."'")
+                    );
+                    // dd($opor);
+                    foreach($opor as $o){
+                        $kode_produk_tv = $o->KODE_PRODUK_TV;
+                        $harga_tv = $o->HARGA_PRODUK_TV;
+                        dd($kode_produk_tv, $harga_tv);
+                        $add_pli = DB::connection('sqlsrv')->statement(
+                            "EXEC SP_CRM_INSERTPLI @ID_PELANGGAN = '".$idpel."',
+                            @KODE_PRODUK_INTERNET = 'STRNET', @KODE_PRODUK_TV = '".$kode_produk_tv."',
+                            @HARGA_INTERNET = '145000', @HARGA_TV= '".$harga_tv."'"
+                        );
+                        if($add_pli){
+                            DB::connection('sqlsrv')->statement(
+                                "EXEC SP_UPDATE_PRODUCT_BW @_NOPA =
+                                '".$pa."'"
+                            );
 
-                return redirect()->route('staging.index');
+                            echo "<script>
+                                alert('berhasil insert data')
+                            </script>";
+
+                            return redirect()->route('staging.index');
+                        }
+                    }
+                }else{
+                    DB::connection('sqlsrv')->statement(
+                    "EXEC SP_UPDATE_PRODUCT_BW @_NOPA =
+                    '".$pa."'"
+                    );
+
+                    echo "<script>
+                        alert('berhasil insert data')
+                    </script>";
+
+                    return redirect()->route('staging.index');
+                }
+            }
+
+
+
 
         } elseif ($jenis == 'no_io') {
-            DB::connection('sqlsrv')->select("SET NOCOUNT ON; EXEC SP_CRM_INSERTIO @ID_PELANGGAN = '" . $data . "' ");
+            DB::connection('sqlsrv')->statement("EXEC SP_CRM_INSERTIO @ID_PELANGGAN = '" . $data . "'
+            ");
 
                 echo "<script>
                         alert('berhasil insert data io')
@@ -129,7 +184,8 @@ class StagingController extends Controller
                 return redirect()->route('staging.index');
 
         } elseif ($jenis == 'no_pi') {
-            DB::connection('sqlsrv')->select("SET NOCOUNT ON; EXEC SP_CRM_INSERTPI @ID_PELANGGAN = '" . $data . "' ");
+            DB::connection('sqlsrv')->statement("EXEC SP_CRM_INSERTPI @ID_PELANGGAN = '" . $data . "'
+            ");
 
                 echo "<script>
                     alert('berhasil insert data pi')

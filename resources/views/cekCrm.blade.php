@@ -25,7 +25,8 @@
             <div class="alert alert-warning" role="alert">
                 <h2>Note :</h2>
                 <p>Untuk pilihan bandwith dan produk, isikan inputan dengan No SPA</p>
-                <p>Untuk pilihan bandwith dan produk, isikan inputan dengan Id Pelanggan</p>
+
+                <p>Untuk pilihan No PI dan No IO, isikan inputan dengan Id Pelanggan</p>
             </div>
             <table id="TabelSpa" class="table table-striped table-hover">
                 <thead>
