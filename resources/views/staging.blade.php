@@ -3,13 +3,13 @@
 @section('container')
     <main>
         <div class="container px-4">
-            <h1 class="mt-4">Cek Sync SPA Staging</h1>
+            <h1 class="mt-4">Cek SPA di staging</h1>
             <hr>
 
-            <b>Masuka No SPA</b>
-            <form method="POST" action="/spa/spaSync/cekStaging" id="search-form" class="form-inline" role="form">
+            <b>Masukan No SPA</b>
+            <form method="POST" action="/staging/cari" id="search-form" class="form-inline" role="form">
                 @csrf
-                <input type="text" name="spa" id="" class="form-control form-control-inline" required>
+                <input type="text" name="spa" id="" class="form-control form-control-inline">
                 <button type="submit" value="cari" name="submit" class="btn btn-info form-control-inline">Cari
                     Data</button>
             </form>
@@ -20,29 +20,36 @@
                     {{ $e }}
                 @endif
             </p> --}}
-            <table id="TabelOpor" class="table table-striped table-hover">
+            <table id="TabelStaging" style="font-size: 10px;" class="table text-center table-bordered table-responsive-lg table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Project Activat ID</th>
-                        <th>ID PEL</th>
-                        <th>PRODUCT</th>
-                        <th>Intern Order ID</th>
-                        <th>Created On</th>
-                        <th>Project Initiation</th>
-                        <th>Sync Staging</th>
+                        <th>No.</th>
+                        <th>NO_PA</th>
+                        <th>NAMA_PELANGGAN</th>
+                        <th>LAYANAN</th>
+                        <th>SID</th>
+                        <th>NO_PA_NODE</th>
+                        <th>ADDRESS</th>
+                        <th>REGION</th>
+                        <th>SATUAN</th>
+                        <th>LAT_LONG</th>
                     </tr>
                 </thead>
                 <tbody>
                     @if (isset($e))
+                        @php $no = 1; @endphp
                         @foreach ($e as $o)
                             <tr>
-                                <td>{!! $o->swo_ProjectActivatID !!}</td>
-                                <td>{{ $o->new_IDPEL }}</td>
-                                <td>{{ $o->product }}</td>
-                                <td>{{ $o->swo_InternOrderID }}</td>
-                                <td>{{ $o->CreatedOn }}</td>
-                                <td>{{ $o->ProjectInitiation }}</td>
-                                <td>{{ $o->Sync_Staging }}</td>
+                                <td>{{ $no++ }}</td>
+                                <td>{!! $o->NO_PA !!}</td>
+                                <td>{{ $o->NAMA_PELANGGAN }}</td>
+                                <td>{{ $o->LAYANAN }}</td>
+                                <td>{{ $o->SID }}</td>
+                                <td>{{ $o->NO_PA_NODE }}</td>
+                                <td>{{ $o->ADDRESS }}</td>
+                                <td>{{ $o->REGION }}</td>
+                                <td>{{ $o->SATUAN }}</td>
+                                <td>{{ $o->LAT_LONG }}</td>
                             </tr>
                         @endforeach
                     @endif
@@ -50,14 +57,12 @@
                 {{-- <tfoot>
                     <tr>
                         <th>NAMA PELANGGAN</th>
-                        <th>ORDER ID</th>
-                        <th>ID PELANGGAN</th>
-                        <th>CRM ID</th>
-                        <th>STATUS</th>
-                        <th>TGL LUNAS</th>
+                        <th>CRM ID / ID PELANGGAN</th>
+                        <th>EMAIL</th>
+                        <th>KODE PRODUK</th>
+                        <th>BANDWITH</th>
                         <th>KODE VA</th>
-                        <th>BATAL</th>
-                        <th>TGL BATAL</th>
+                        <th>TGL_LUNAS</th>
                     </tr>
                 </tfoot> --}}
             </table>
@@ -67,7 +72,7 @@
         <script>
             $(document).ready(function() {
                 $('[data-toggle="tooltip"]').tooltip();
-                $('#TabelOpor').DataTable({
+                $('#TabelStaging').DataTable({
                     processing: true,
                     lengthMenu: [
                         [10, 25, 50, -1],
