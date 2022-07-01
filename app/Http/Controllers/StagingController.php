@@ -148,8 +148,8 @@ class StagingController extends Controller
                         // dd($kode_produk_tv, $harga_tv);
                         DB::connection('sqlsrv')->statement(
                             "EXEC SP_CRM_INSERTPLI @ID_PELANGGAN = '" . $idpel . "',
-                            @KODE_PRODUK_INTERNET = '" . $kode_produk_internet . "', @KODE_PRODUK_TV = '" . $kode_produk_tv . "',
-                            @HARGA_INTERNET = '" . $harga_internet . "', @HARGA_TV= '" . $harga_tv . "'"
+@KODE_PRODUK_INTERNET = '" . $kode_produk_internet . "', @KODE_PRODUK_TV = '" . $kode_produk_tv . "',
+@HARGA_INTERNET = '" . $harga_internet . "', @HARGA_TV= '" . $harga_tv . "'"
                         );
 
 
@@ -170,33 +170,59 @@ class StagingController extends Controller
                                     LEFT JOIN swo_serviceidBase c ON c.swo_serviceidId = a.swo_serviceid
                                     WHERE a.swo_ProjectActivatID = '" . $pa . "'")
                                 );
-                                if($updateProd == TRUE){
+                                if ($updateProd == TRUE) {
                                     echo "<script>
                                         alert('berhasil insert produk')
                                     </script>";
                                     return redirect()->route('staging.index');
-                                }else{
+                                } else {
                                     echo "ada kesalahan :(";
                                 }
-
-                            } elseif ($bandwidth == '') {
+                            } elseif ($bandwidth == '' || $pli != '') {
                                 $updateBW = DB::connection('sqlsrv')->statement("EXEC SP_UPDATE_PRODUCT_BW @_NOPA =
                                 '" . $pa . "'");
 
-                                if($updateBW == TRUE){
+                                if ($updateBW == TRUE) {
                                     echo "<script>
                                         alert('berhasil insert bandwidth')
                                     </script>";
                                     return redirect()->route('staging.index');
-                                }else{
+                                } else {
                                     echo "ada kesalahan :(";
                                 }
-
                             }
                         }
                     }
                 } elseif ($pli != '') {
-                    echo "pli sudah ada coy silahkan kembali";
+                    if ($produk == '') {
+                        $updateProd = DB::connection('dbo')->update(
+                            DB::raw("UPDATE a SET a.swo_ProductNameId = b.swo_product_findim FROM
+                    swo_projectActivationBase a
+                    LEFT JOIN swo_productlineitemBase b ON b.new_serviceid = a.swo_serviceid
+                    LEFT JOIN swo_serviceidBase c ON c.swo_serviceidId = a.swo_serviceid
+                    WHERE a.swo_ProjectActivatID = '" . $pa . "'")
+                        );
+                        if ($updateProd == TRUE) {
+                            echo "<script>
+                        alert('berhasil insert produk')
+                    </script>";
+                            return redirect()->route('staging.index');
+                        } else {
+                            echo "ada kesalahan :(";
+                        }
+                    } elseif ($bandwidth == '' || $pli != '') {
+                        $updateBW = DB::connection('sqlsrv')->statement("EXEC SP_UPDATE_PRODUCT_BW @_NOPA =
+                    '" . $pa . "'");
+
+                        if ($updateBW == TRUE) {
+                            echo "<script>
+                        alert('berhasil insert bandwidth')
+                    </script>";
+                            return redirect()->route('staging.index');
+                        } else {
+                            echo "ada kesalahan :(";
+                        }
+                    }
                     // return redirect()->route('staging.index');
                 } elseif ($produk != '') {
                     echo "PRODUK sudah ada coy silahkan kembali";
