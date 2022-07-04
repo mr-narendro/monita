@@ -17,22 +17,24 @@ class PM2Controller extends Controller
             foreach ($status as $s) {
                 $st = $s->isRunning;
                 if($st == 1){
-                    $s->isRunning = 'Running';
+                    $s->isRunning = 'Status : <span class="badge bg-success">Running</span>';
                 }else{
-                    $s->isRunning = 'Jancok';
+                    $s->isRunning = 'Status : <span class="badge bg-warning">Idle</span>';
                 }
             }
 
         return view('pm2', ['title' => 'PM2 Monitoring', 'status' =>$status]);
     }
 
-    public function updateStatus($id)
+    public function updateStatus()
     {
-        $id = $id;
+
 
         $update = DB::connection('sqlsrv')
-        ->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = ".$id));
-        // echo $reset;
+        ->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = 1"));
+        // // echo $reset;
+
+        // $update="jancok";
 
 
         return $update;

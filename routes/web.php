@@ -57,7 +57,7 @@ Route::prefix('staging')->group(function () {
 
 Route::prefix('pm2')->group(function () {
     Route::get('/send-pa-crm', 'PM2Controller@index');
-    Route::any('/send-pa-crm/updateStatus/{id}', 'PM2Controller@updateStatus');
+    Route::get('/send-pa-crm/updateStatus/', 'PM2Controller@updateStatus');
 });
 
 
