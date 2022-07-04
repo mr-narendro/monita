@@ -9,8 +9,7 @@
                 <div class="col col-3">
                     <div class="row">
                         @foreach ($status as $s)
-                        <h6>Status : <span class="badge bg-danger">{{ $s->isRunning }}</span></h6>
-                        <input type="text" name="id" value="{{ $s->id }}" id="id">
+                        <h6>{!! $s->isRunning !!}</h6>
                         @endforeach
                         <button class="button btn-sm btn-success" name="reset" id="btn-reset">Reset</button>
                     </div>
@@ -26,11 +25,10 @@
         <script>
             $(document).ready(function() {
                 $("#btn-reset").click(function(e) {
-                    var id = $('#id').val()
                     e.preventDefault();
                     $.ajax({
                         type: "GET",
-                        url: "/pm2/send-pa-crm/updateStatus/"+id,
+                        url: "/pm2/send-pa-crm/updateStatus/",
                         success: function(response) {
                             alert('success');
                         },
