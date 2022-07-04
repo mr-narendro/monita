@@ -55,6 +55,12 @@ Route::prefix('staging')->group(function () {
     Route::post('/insertData', 'StagingController@insertData')->name('staging.insertData');
 });
 
+Route::prefix('pm2')->group(function () {
+    Route::get('/send-pa-crm', 'PM2Controller@index');
+    Route::any('/send-pa-crm/updateStatus/{id}', 'PM2Controller@updateStatus');
+});
+
+
 Route::prefix('sap')->group(function () {
 Route::get('/', 'SapController@index')->name('sap.index');
 Route::any('/cek/{io}', 'SapController@cek')->name('sap.cek');
