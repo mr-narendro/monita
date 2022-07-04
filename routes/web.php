@@ -54,3 +54,9 @@ Route::prefix('staging')->group(function () {
     Route::get('/cekCrm/{no_pa}', 'StagingController@cekCrm')->name('staging.cekCrm');
     Route::post('/insertData', 'StagingController@insertData')->name('staging.insertData');
 });
+
+Route::prefix('pm2')->group(function () {
+    Route::get('/send-pa-crm', 'PM2Controller@index');
+});
+
+

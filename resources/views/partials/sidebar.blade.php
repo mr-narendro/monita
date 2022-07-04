@@ -24,8 +24,8 @@
                         <a class="nav-link" href="/staging/">Cek SPA Staging (23.58)</a>
                     </nav>
                 </div>
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsspa"
-                    aria-expanded="false" aria-controls="collapseLayoutsspa">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapseLayoutsspa" aria-expanded="false" aria-controls="collapseLayoutsspa">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     SAP (Under Development)
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -45,6 +45,17 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Tables
                 </a> --}}
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePM2"
+                    aria-expanded="false" aria-controls="collapsePM2">
+                    {{-- <div class="sb-nav-link-icon"><i class=""></i></div> --}}
+                    PM2 Monitoring
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapsePM2" aria-labelledby="headingOne" data-bs-parent="#dropdownPM2">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="/pm2/send-pa-crm">Send PA CRM</a>
+                    </nav>
+                </div>
             </div>
         </div>
         <div class="sb-sidenav-footer">
