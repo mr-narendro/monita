@@ -27,13 +27,13 @@
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsspa"
                     aria-expanded="false" aria-controls="collapseLayoutsspa">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    SAP (Under Development)
+                    SAP
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseLayoutsspa" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Cek IO (Under Development)</a>
+                        <a class="nav-link" href="/sap">Cek IO</a>
                     </nav>
                 </div>
                 {{-- <div class="sb-sidenav-menu-heading">Addons</div>
