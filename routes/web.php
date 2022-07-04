@@ -54,3 +54,8 @@ Route::prefix('staging')->group(function () {
     Route::get('/cekCrm/{no_pa}', 'StagingController@cekCrm')->name('staging.cekCrm');
     Route::post('/insertData', 'StagingController@insertData')->name('staging.insertData');
 });
+
+Route::prefix('sap')->group(function () {
+Route::get('/', 'SapController@index')->name('sap.index');
+Route::any('/cek/{io}', 'SapController@cek')->name('sap.cek');
+});
