@@ -26,16 +26,12 @@
                     e.preventDefault();
                     $.ajax({
                         type: "POST",
-                        url: "/pm2/update/",
-                        data: {
-                            id: $(this).val(), // < note use of 'this' here
-                            access_token: $("#access_token").val()
-                        },
+                        url: "/pm2/send-pa-crm/update/",
                         success: function(result) {
-                            alert('ok');
+                            alert('success');
                         },
                         error: function(result) {
-                            alert('error');
+                            alert('gagal upload');
                         }
                     });
                 });
