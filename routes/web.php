@@ -60,3 +60,7 @@ Route::prefix('pm2')->group(function () {
 });
 
 
+Route::prefix('sap')->group(function () {
+Route::get('/', 'SapController@index')->name('sap.index');
+Route::any('/cek/{io}', 'SapController@cek')->name('sap.cek');
+});
