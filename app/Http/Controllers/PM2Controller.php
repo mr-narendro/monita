@@ -14,12 +14,27 @@ class PM2Controller extends Controller
     {
         $status = DB::connection('sqlsrv')->table("Tbl_Pm2_Node as voa")
             ->select('*')->get();
-            if($status[0]->isRunning == 1){
-                $text = 'Running';
-            }else{
-                $text = 'Idle';
+            foreach ($status as $s) {
+                $st = $s->isRunning;
+                if($st == 1){
+                    $s->isRunning = 'Running';
+                }else{
+                    $s->isRunning = 'Jancok';
+                }
             }
 
-        return view('pm2', ['title' => 'PM2 Monitoring', 'status' =>$text]);
+        return view('pm2', ['title' => 'PM2 Monitoring', 'status' =>$status]);
+    }
+
+    public function updateStatus($id)
+    {
+        $id = $id;
+
+        $update = DB::connection('sqlsrv')
+        ->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = ".$id));
+        // echo $reset;
+
+
+        return $update;
     }
 }

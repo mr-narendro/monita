@@ -47,7 +47,7 @@
                 </a> --}}
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePM2"
                     aria-expanded="false" aria-controls="collapsePM2">
-                    {{-- <div class="sb-nav-link-icon"><i class=""></i></div> --}}
+                    <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
                     PM2 Monitoring
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>

@@ -8,8 +8,11 @@
             <div class="row">
                 <div class="col col-3">
                     <div class="row">
-                        <h6>Status : <span class="badge bg-info">{{ $status }}</span></h6>
-                        <button class="button btn-sm btn-success" id="btn-reset">Reset</button>
+                        @foreach ($status as $s)
+                        <h6>Status : <span class="badge bg-danger">{{ $s->isRunning }}</span></h6>
+                        <input type="text" name="id" value="{{ $s->id }}" id="id">
+                        @endforeach
+                        <button class="button btn-sm btn-success" name="reset" id="btn-reset">Reset</button>
                     </div>
 
                 </div>
@@ -23,15 +26,16 @@
         <script>
             $(document).ready(function() {
                 $("#btn-reset").click(function(e) {
+                    var id = $('#id').val()
                     e.preventDefault();
                     $.ajax({
-                        type: "POST",
-                        url: "/pm2/send-pa-crm/update/",
-                        success: function(result) {
+                        type: "GET",
+                        url: "/pm2/send-pa-crm/updateStatus/"+id,
+                        success: function(response) {
                             alert('success');
                         },
-                        error: function(result) {
-                            alert('gagal upload');
+                        error: function(response) {
+                            alert('gagal cok...!!!');
                         }
                     });
                 });
