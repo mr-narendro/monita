@@ -13,7 +13,7 @@ class PM2Controller extends Controller
     public function index()
     {
         $status = DB::connection('sqlsrv')->table("Tbl_Pm2_Node as voa")
-            ->select('*')->get();
+            ->select('*')->where([['id','=',1]])->get();
             foreach ($status as $s) {
                 $st = $s->isRunning;
                 if($st == 1){
@@ -33,8 +33,6 @@ class PM2Controller extends Controller
         $update = DB::connection('sqlsrv')
         ->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = 1"));
         // // echo $reset;
-
-        // $update="jancok";
 
 
         return $update;
