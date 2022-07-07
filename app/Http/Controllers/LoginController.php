@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
- 
+
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Session;
@@ -11,10 +11,10 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Auth;
- 
+
 class LoginController extends Controller
 {
-    
+
     public function login(){
         if(Session::get('login')){
             return redirect('/');
@@ -23,19 +23,20 @@ class LoginController extends Controller
         }
     }
 
-    public function actLogin(Request $request){  
-        
+    public function actLogin(Request $request){
+
         if(Session::get('login')){
             return redirect('/');
-        }                  
+        }
         $email = strpos($request->input('email'), "@iconpln.co.id") ?  str_replace("@iconpln.co.id", "",$request->input('email')) : $request->input('email');
         // $email = $request->input('email');
         $password = $request->input('password');
 
         $data = DB::connection('user_login')->select(DB::raw("SELECT * FROM users vdw WHERE vdw.email = '".$email."' AND monita =1 limit 1"));
-                      
-        $data = $data[0];
-        if($data){                        
+
+
+        if($data){
+            $data = $data[0];
             if($data->flag_status == 'INTERNAL'){
                 $server = "ldap://10.14.23.75";
                 $port = "389";
@@ -58,13 +59,13 @@ class LoginController extends Controller
                         'message' => 'Failed to connect LDAP'
                     );
                     $this->response($result, 400);
-                }              
-            } else if ($data->flag_status == 'EXTERNAL') {                                
+                }
+            } else if ($data->flag_status == 'EXTERNAL') {
                 return redirect('login')->with('alert','Username atau Password, Salah!');
-            }                                      
+            }
         }else {
       	     return redirect('login')->with('alert','Email Tidak Terdaftar!');
-        }        
+        }
     }
 
     public function logout(){

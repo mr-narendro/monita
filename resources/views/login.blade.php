@@ -14,8 +14,9 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #17a2b8;
+            background-color: grey;
             height: 100vh;
+            color: black;
         }
 
         #login .container #login-row #login-column #login-box {
@@ -49,7 +50,7 @@
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" method="POST" action="{{ url('/login') }}">
                             @csrf
-                            <h3 class="text-center text-info">Login</h3>
+                            <h3 class="text-center text-black">Login Coy... !</h3>
                             @if (\Session::has('alert'))
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert"
                                     id="myAlert" width="50%">
