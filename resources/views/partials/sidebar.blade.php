@@ -7,7 +7,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <div class="sb-sidenav-menu-heading">Main Menu</div>
+                <div class="sb-sidenav-menu-heading">Tugas Monitoring</div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
                     aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
@@ -36,6 +36,30 @@
                         <a class="nav-link" href="/sap">Cek IO</a>
                     </nav>
                 </div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapseLayoutsIconPay" aria-expanded="false" aria-controls="collapseLayoutsIconPay">
+                    <div class="sb-nav-link-icon"><i class="fas fa-money-check-alt    "></i></div>
+                    IconPay (Under Development)
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseLayoutsIconPay" aria-labelledby="headingOne"
+                    data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="/iconpay/">Piutang</a>
+                    </nav>
+                </div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapseLayoutspm2" aria-expanded="false" aria-controls="collapseLayoutspm2">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
+                    PM2 Monitoring
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseLayoutspm2" aria-labelledby="headingOne"
+                    data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="/pm2/send-pa-crm">Send PA CRM</a>
+                    </nav>
+                </div>
                 {{-- <div class="sb-sidenav-menu-heading">Addons</div>
                 <a class="nav-link" href="charts.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -45,17 +69,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Tables
                 </a> --}}
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePM2"
-                    aria-expanded="false" aria-controls="collapsePM2">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
-                    PM2 Monitoring
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="collapsePM2" aria-labelledby="headingOne" data-bs-parent="#dropdownPM2">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/pm2/send-pa-crm">Send PA CRM</a>
-                    </nav>
-                </div>
+
             </div>
         </div>
         <div class="sb-sidenav-footer">
