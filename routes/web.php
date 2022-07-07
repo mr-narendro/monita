@@ -62,6 +62,14 @@ Route::prefix('pm2')->group(function () {
 
 
 Route::prefix('sap')->group(function () {
-Route::get('/', 'SapController@index')->name('sap.index');
-Route::any('/cek/{io}', 'SapController@cek')->name('sap.cek');
+    Route::get('/', 'SapController@index')->name('sap.index');
+    Route::any('/cek/{io}', 'SapController@cek')->name('sap.cek');
+});
+
+Route::prefix('iconpay')->group(function () {
+    Route::get('/', 'IconPayController@index')->name('iconpay.index');
+    Route::post('/cariIdPel','IconPayController@cariIdPel')->name('iconpay.cariIdPel');
+    Route::post('/addPiutang','IconPayController@addPiutang')->name('iconpay.addPiutang');
+    Route::post('/editPiutang','IconPayController@editPiutang')->name('iconpay.editPiutang');
+    Route::post('/batalPiutang','IconPayController@batalPiutang')->name('iconpay.batalPiutang');
 });
