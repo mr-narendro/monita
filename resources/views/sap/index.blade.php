@@ -16,6 +16,7 @@
             <br>
             <div class="container mt-5">
                 <h1 id="status"></h1>
+                <h3 id="spa"></h3>
             </div>
 
         </div>
@@ -58,7 +59,10 @@
                     },
                     success: function(response) {
                         if(response.code == 200){
+                            var h = response.message.slice(56)
+                            console.log(h);
                             $('#status').text('IO Tersedia')
+                            $('#spa').text('SPA : '+h).css('color','salmon')
                         }else{
                             $('#status').text('IO Tidak Tersedia')
                         }
