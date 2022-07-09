@@ -26,15 +26,10 @@ class PM2Controller extends Controller
         return view('pm2', ['title' => 'PM2 Monitoring', 'status' =>$status]);
     }
 
-    public function updateStatus()
+    public function updateStatus(Request $request)
     {
-
-
-        $update = DB::connection('sqlsrv')
-        ->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = 2"));
+        $update = DB::connection('sqlsrv')->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = 2"));
         // // echo $reset;
-
-
         return $update;
     }
 }
