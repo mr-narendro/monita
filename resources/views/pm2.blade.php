@@ -29,13 +29,12 @@
                     var res = confirm("Apakah anda yakin ingin reset???")
                     if (res) {
                         $.ajax({
-                            type: "GET",
+                            type: "PUT",
                             url: "/pm2/send-pa-crm/updateStatus/",
                             headers:{
                                 "X-CSRF-TOKEN": "{{ csrf_token() }}"
                             },
                             success: function(response) {
-                                console.log(response)
                                 alert('Berhasil Reset');
                             },
                             error: function(response) {
