@@ -35,12 +35,11 @@
                                 "X-CSRF-TOKEN": "{{ csrf_token() }}"
                             },
                             success: function(response) {
+                                console.log(response)
                                 alert('Berhasil Reset');
-                                window.location.reload();
                             },
                             error: function(response) {
-                                alert('gagal cok...!!!');
-                                window.location.reload();
+                                alert('gagal cok...!!!');\
                             }
                         });
                     } else {
