@@ -30,7 +30,7 @@
                     var res = confirm("Apakah anda yakin ingin reset???")
                     if (res) {
                         $.ajax({
-                            type: "PUT",
+                            type: "POST",
                             url: "/pm2/send-pa-crm/updateStatus/",
                             headers:{
                                 "X-CSRF-TOKEN": "{{ csrf_token() }}"
