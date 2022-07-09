@@ -13,7 +13,7 @@ class PM2Controller extends Controller
     public function index()
     {
         $status = DB::connection('sqlsrv')->table("Tbl_Pm2_Node as voa")
-            ->select('*')->where([['id','=',1]])->get();
+            ->select('*')->where([['id','=',2]])->get();
             foreach ($status as $s) {
                 $st = $s->isRunning;
                 if($st == 1){
