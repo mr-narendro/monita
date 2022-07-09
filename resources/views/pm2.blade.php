@@ -39,7 +39,7 @@
                                 alert('Berhasil Reset');
                             },
                             error: function(response) {
-                                alert('gagal cok...!!!');\
+                                alert('gagal cok...!!!');
                             }
                         });
                     } else {
