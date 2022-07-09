@@ -31,7 +31,7 @@ class PM2Controller extends Controller
 
 
         $update = DB::connection('sqlsrv')
-        ->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = 1"));
+        ->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = 2"));
         // // echo $reset;
 
 
