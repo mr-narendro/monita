@@ -37,6 +37,7 @@
                             },
                             success: function(response) {
                                 alert('Berhasil Reset');
+                                window.location.reload();
                             },
                             error: function(response) {
                                 alert('gagal cok...!!!');
