@@ -9,6 +9,7 @@
             <div class="row">
                 <div class="col col-3">
                     <div class="row">
+                        @csrf
                         @foreach ($status as $s)
                             <h6>{!! $s->isRunning !!}</h6>
                         @endforeach
