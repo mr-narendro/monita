@@ -28,7 +28,7 @@ class PM2Controller extends Controller
 
     public function updateStatus(Request $request)
     {
-        $update = DB::connection('sqlsrv')->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = 2"));
+        $update = DB::connection('sqlsrv')->update(DB::raw("UPDATE Tbl_Pm2_Node SET isRunning = 0 WHERE id = 1"));
         // // echo $reset;
         return $update;
     }
