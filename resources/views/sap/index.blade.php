@@ -65,6 +65,9 @@
                             $('#spa').text('SPA : '+h).css('color','salmon')
                         }else{
                             $('#status').text('IO Tidak Tersedia')
+                            $('#spa').text('SPA : Gak ada nih boss !!!').css('color','magenta')
+
+
                         }
                     }
                 });
