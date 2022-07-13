@@ -31,7 +31,7 @@
             padding: 20px;
         }
     </style>
-    <title>Digisign</title>
+    <title>MONITA</title>
 </head>
 
 <body>
