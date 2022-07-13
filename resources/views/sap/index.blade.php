@@ -23,20 +23,6 @@
         <br>
 
         <script>
-            // function klik() {
-            //     var io = document.getElementById("io").value;
-            //     var username = 'integrasi';
-            //     var password = '1nts4p';
-            //     fetch("http://icndbpi1.iconpln.co.id:8000/sap/bc/zapi_check_io?sap-client=100&internal_order=" + io, {
-            //             header: {
-            //                 "Content-Type":"application/json; charset=utf-8",
-            //                 "Authorization": "Basic " + btoa(username + ":" + password)
-            //             }
-            //         })
-            //         .then((response) => response.json())
-            //         .then((json) => console.log(json))
-            // }
-
             $(document).ready(function(){
                 $("#cari").click(function() {
                 var io = $("#io").val();
