@@ -35,6 +35,8 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="/sap">Cek IO</a>
+                        {{-- <a class="nav-link" href="/sap/unlock">Unlock User</a> --}}
+                        <a class="nav-link" href="/sap/stagingIo">Cek IO Staging</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"

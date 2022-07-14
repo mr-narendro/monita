@@ -31,7 +31,7 @@
             padding: 20px;
         }
     </style>
-    <title>Digisign</title>
+    <title>MONITA</title>
 </head>
 
 <body>
@@ -50,7 +50,6 @@
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" method="POST" action="{{ url('/login') }}">
                             @csrf
-                            <h3 class="text-center text-black">Login Coy... !</h3>
                             @if (\Session::has('alert'))
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert"
                                     id="myAlert" width="50%">
@@ -76,7 +75,7 @@
                         </form>
                         <div class="row mb-3">
                             <div class="col-sm text-right">
-                                <small>v.1.0.1</small>
+                                <small>github: mr-narendro</small>
                             </div>
                         </div>
                     </div>
