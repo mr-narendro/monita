@@ -17,7 +17,6 @@ use App\Http\Controllers\LoginController;
 Route::get('login',[LoginController::class, 'login']);
 Route::post('login',[LoginController::class, 'actLogin']);
 Route::get('logout',[LoginController::class, 'logout']);
-
 Route::middleware(['isLogin'])->group(function () {
 
     Route::get('/', function () {
@@ -54,6 +53,9 @@ Route::middleware(['isLogin'])->group(function () {
         Route::post('/update', 'StagingController@update')->name('staging.updatePA');
         Route::get('/cekCrm/{no_pa}', 'StagingController@cekCrm')->name('staging.cekCrm');
         Route::post('/insertData', 'StagingController@insertData')->name('staging.insertData');
+        Route::get('/add-manual', 'AddSPAToStagingController@index');
+        Route::get('/add-manual/dt/{spa}', 'AddSPAToStagingController@getData');
+        Route::get('/add-manual/insert/{spa}', 'AddSPAToStagingController@insert');    
     });
 
     Route::prefix('pm2')->group(function () {
@@ -75,3 +77,5 @@ Route::middleware(['isLogin'])->group(function () {
         Route::post('/batalPiutang','IconPayController@batalPiutang')->name('iconpay.batalPiutang');
     });
 });
+
+
