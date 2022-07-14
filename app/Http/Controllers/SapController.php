@@ -150,6 +150,6 @@ class SapController extends Controller
                     swo_internorderid='".$io."'"
                 )
             );
-        return true;
+        return $res;
     }
 }
