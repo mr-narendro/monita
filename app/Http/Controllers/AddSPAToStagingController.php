@@ -60,7 +60,10 @@ class AddSPAToStagingController extends Controller
             'modifiedby'      => $data->modifiedby,
             'modifiedon'      => date('Y-m-d h:m:s'),
             'RequestDate'     => date('Y-m-d h:m:s'),
+            'RespondDate'     => date('Y-m-d h:m:s'),
             'entitylogicalname' => $data->entitylogicalname,
+            'syncStatus'      => $data->syncStatus,
+            'nomor_io'        => $data->nomor_io
         ]);
 
 

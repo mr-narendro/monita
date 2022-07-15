@@ -57,7 +57,10 @@ Route::middleware(['isLogin'])->group(function ()
         Route::get('/add-manual', 'AddSPAToStagingController@index');
         Route::get('/add-manual/dt/{spa}', 'AddSPAToStagingController@getData');
         Route::get('/add-manual/insert/{spa}', 'AddSPAToStagingController@insert');
-        Route::post('/update-io-manual/update', 'UpdateStagingController@updateStaging');
+        Route::get('/update-io-manual', 'UpdateStagingController@index')->name('staging.updateStaging');
+        Route::post('/update-io-manual/cari', 'UpdateStagingController@cari');
+        Route::post('/update-io-manual/updatePTL', 'UpdateStagingController@updatePTL');
+        Route::post('/update-io-manual/updateIO', 'UpdateStagingController@updateIO');
     });
 
     Route::prefix('pm2')->group(function () {

@@ -40,11 +40,12 @@
                         <a class="nav-link" href="/sap/stagingIo">Cek IO Staging</a>
                     </nav>
                 </div>
+                @if (session('name') == "Alif Narendro Jati" || session('name') == "Khalid Habib" || session('name') == "Rachmat Roberto" || session('name') == "ikhsan" || session('name') == "Rico Yusman")
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                     data-bs-target="#collapseLayoutsIconPay" aria-expanded="false"
                     aria-controls="collapseLayoutsIconPay">
                     <div class="sb-nav-link-icon"><i class="fas fa-money-check-alt    "></i></div>
-                    IconPay Dev
+                    IconPay
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseLayoutsIconPay" aria-labelledby="headingOne"
@@ -53,6 +54,7 @@
                         <a class="nav-link" href="/iconpay/">Piutang</a>
                     </nav>
                 </div>
+                @endif
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                     data-bs-target="#collapseLayoutspm2" aria-expanded="false" aria-controls="collapseLayoutspm2">
                     <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
