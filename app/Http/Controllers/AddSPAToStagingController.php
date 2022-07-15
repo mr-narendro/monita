@@ -18,16 +18,51 @@ class AddSPAToStagingController extends Controller
     public function insert($spa)
     {
         $spa = str_replace("_","/",$spa);
-        $datas = DB::connection('dbo')->table("Cek_Validasi_Antrian_PI")
+        $datas = DB::connection('dbo')->table("VIEW_ADD_STAGING_MANUAL")
         ->select("*")
         ->where([
-            ['swo_ProjectActivatID', '=', $spa]
+            ['NO_PA', '=', $spa]
         ])->get();
 
-        $saveStaging = DB::connection('dbo')->table('fso_staging')->insert([            
-            'NO_PA'           => $datas[0]->swo_ProjectActivatID,
-            ''
-        ]);   
+        $data = $datas[0];
+        // dd($data);
+
+        // return response()->json([
+        //     "kiki_jancok" => $data
+        // ]);
+
+        $saveStaging = DB::connection('dbo_dev')->table('fso_staging')->insert([
+            'NO_PA'           => $data->NO_PA,
+            'TGL_PA'          => date('Y-m-d h:m:s'),
+            'TGL_TARGET_PA'   => date('Y-m-d h:m:s'),
+            'NAMA_SALES'      => $data->NAMA_SALES,
+            'NAMA_PTL'        => $data->NAMA_PTL,
+            'PTL_EMAIL'       => $data->PTL_EMAIL,
+            'NAMA_PELANGGAN'  => $data->NAMA_PELANGGAN,
+            'SEGMEN'          => $data->SEGMEN,
+            'LAYANAN'         => $data->LAYANAN,
+            'TIPE_SO'         => $data->TIPE_SO,
+            'SID'             => $data->SID,
+            'NO_PA_NODE'      => $data->NO_PA_NODE,
+            'ADDRESS'         => $data->ADDRESS,
+            'REGION'          => $data->REGION,
+            'PIC'             => $data->PIC,
+            'PIC_EMAIL'       => $data->PIC_EMAIL,
+            'LAT_LONG'        => $data->LAT_LONG,
+            'QTY'             => $data->QTY,
+            'SATUAN'          => $data->SATUAN,
+            'TYPE'            => $data->TYPE,
+            'RELATED_DOCUMENT'=> $data->RELATED_DOCUMENT,
+            'RELATED_DOCUMENT_GUID' => $data->RELATED_DOCUMENT_GUID,
+            'VENDOR_REQUEST'  => $data->VENDOR_REQUEST,
+            'WORK_ORDER_PERMIT'=> $data->WORK_ORDER_PERMIT,
+            'requeststatus'   => $data->requeststatus,
+            'modifiedby'      => $data->modifiedby,
+            'modifiedon'      => date('Y-m-d h:m:s'),
+            'RequestDate'     => date('Y-m-d h:m:s'),
+            'entitylogicalname' => $data->entitylogicalname,
+        ]);
+
 
     }
 
@@ -40,9 +75,9 @@ class AddSPAToStagingController extends Controller
                 ['swo_ProjectActivatID', '=', $spa]
             ])->get();
         return datatables()->of($datas)
-        ->addIndexColumn()        
+        ->addIndexColumn()
         ->make(true);
-        
-        
+
+
     }
 }

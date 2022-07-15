@@ -17,7 +17,8 @@ use App\Http\Controllers\LoginController;
 Route::get('login',[LoginController::class, 'login']);
 Route::post('login',[LoginController::class, 'actLogin']);
 Route::get('logout',[LoginController::class, 'logout']);
-Route::middleware(['isLogin'])->group(function () {
+Route::middleware(['isLogin'])->group(function ()
+{
 
     Route::get('/', function () {
         return view('index', ['title' => 'Dashboard']);
@@ -55,7 +56,8 @@ Route::middleware(['isLogin'])->group(function () {
         Route::post('/insertData', 'StagingController@insertData')->name('staging.insertData');
         Route::get('/add-manual', 'AddSPAToStagingController@index');
         Route::get('/add-manual/dt/{spa}', 'AddSPAToStagingController@getData');
-        Route::get('/add-manual/insert/{spa}', 'AddSPAToStagingController@insert');    
+        Route::get('/add-manual/insert/{spa}', 'AddSPAToStagingController@insert');
+        Route::post('/update-io-manual/update', 'UpdateStagingController@updateStaging');
     });
 
     Route::prefix('pm2')->group(function () {

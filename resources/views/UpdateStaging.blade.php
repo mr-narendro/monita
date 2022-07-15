@@ -3,32 +3,19 @@
 @section('container')
     <main>
         <div class="container px-4">
-            <h1 class="mt-4">ADD PA Staging Manual</h1>
+            <h1 class="mt-4">Edit IO & PTL Staging Manual</h1>
             <hr>
 
-            <b>Nomor SPA</b>
-            <input type="text" name="noSPA" id="noSPA" class="form-control form-control-inline form-control-sm">
-            <button name="btnSubmit" id="btnSubmit" class="btn btn-info form-control-inline btn-sm">Cari Data</button>
-            <button name="btnAddSPA" id="btnAddSPA" class="btn btn-success btn-sm">Add Staging</button>
-
+            <select name="type" id="type" class="form-select form-control-inline" required>
+                <option value="">-- pilih --</option>
+                <option value="swo_internorderid">No IO</option>
+                <option value="swo_externalordernumber">PTL</option>
+            </select>
+            <input type="text" name="data" id="data" class="form-control form-control-inline" required>
+            <button value="cari" id="cari" name="submit" class="btn btn-info form-control-inline">Update
+                Data
+            </button>
             <br>
-            <br>
-            <table id="tableSPA" class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>NO SPA</th>
-                        <th>CRM ID</th>
-                        <th>PRODUK</th>
-                        <th>IO</th>
-                        <th>PI</th>
-                        <th>Sync Staging</th>
-                        <th>PTL</th>
-                        <th>Created On</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
         </div>
         <br>
 

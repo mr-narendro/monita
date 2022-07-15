@@ -238,7 +238,7 @@
                     } else {
                         $.ajax({
                             type: "POST",
-                            url: "/iconpay/cariIdPel/",
+                            url: "/iconpay/cariIdPel",
                             data: {
                                 'idPel': idPel
                             },
