@@ -54,8 +54,8 @@ class IconPayController extends Controller
         $username = "stroomnet";
         $password = "icon123/";
         $response = Http::withHeaders([
-            'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
-        ])->post('http://10.14.152.45:8282/stroomnetcrm/addPiutang', [
+            'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
+        ])->post(env("ICONPAY_ADDPIUTANG_PRD", ""), [
             'nova' => $nova,
             'noinvoice' => $noinvoice,
             'idpel' => $idpel,
@@ -107,8 +107,8 @@ class IconPayController extends Controller
         $password = "icon123/";
         //echo json_encode($idpel);
         $response = Http::withHeaders([
-            'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
-        ])->post('http://10.14.152.45:8282/stroomnetcrm/editPiutang', [
+            'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
+        ])->post(env("ICONPAY_EDITPIUTANG_PRD", ""), [
             'nova' => $nova,
             'noinvoice' => $noinvoice,
             'idpel' => $idpel,
@@ -145,8 +145,8 @@ class IconPayController extends Controller
         $password = "icon123/";
         //echo json_encode($idpel);
         $response = Http::withHeaders([
-            'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
-        ])->post('http://10.14.152.45:8282/stroomnetcrm/batalPiutang', [
+            'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
+        ])->post(env("ICONPAY_BATALPIUTANG_PRD", ""), [
             'nova' => $nova,
             'idpel' => $idpel,
             'thbltagihan' => $thbltagihan,
