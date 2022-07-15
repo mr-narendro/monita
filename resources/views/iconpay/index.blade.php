@@ -325,7 +325,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "/iconpay/addPiutang/",
+                        url: "/iconpay/addPiutang",
                         data: {
                             'nova' : nova,
                             'noinvoice' : noinvoice,
@@ -391,7 +391,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "/iconpay/editPiutang/",
+                        url: "/iconpay/editPiutang",
                         data: {
                             'nova' : nova,
                             'noinvoice' : noinvoice,
@@ -442,7 +442,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "/iconpay/batalPiutang/",
+                        url: "/iconpay/batalPiutang",
                         data: {
                             'nova' : nova,
                             'idpel' : idpel,
