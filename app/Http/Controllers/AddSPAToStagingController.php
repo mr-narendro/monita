@@ -31,7 +31,7 @@ class AddSPAToStagingController extends Controller
         //     "kiki_jancok" => $data
         // ]);
 
-        $saveStaging = DB::connection('dbo_dev')->table('fso_staging')->insert([
+        $saveStaging = DB::connection('staging')->table('fso_staging')->insert([
             'NO_PA'           => $data->NO_PA,
             'TGL_PA'          => date('Y-m-d h:m:s'),
             'TGL_TARGET_PA'   => date('Y-m-d h:m:s'),
