@@ -17,11 +17,13 @@
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/opportunity/">Cek Opportunity (23.175)</a>
-                        <a class="nav-link" href="/antrian/">Cek Antrian(23.175)</a>
-                        <a class="nav-link" href="/spa/">Cek No SPA (23.193)</a>
-                        <a class="nav-link" href="/spa/spaSync">Cek Sync SPA Staging (23.193)</a>
-                        <a class="nav-link" href="/staging/">Cek SPA Staging (23.58)</a>
+                        <a class="nav-link" href="/opportunity/">Opportunity 175</a>
+                        <a class="nav-link" href="/antrian/">Antrian PA 175</a>
+                        <a class="nav-link" href="/spa/">No SPA 193</a>
+                        <a class="nav-link" href="/spa/spaSync">Sync SPA Staging 193</a>
+                        <a class="nav-link" href="/staging/">SPA Staging 58</a>
+                        <a class="nav-link" href="/staging/add-manual/">Add Staging Manual</a>
+                        <a class="nav-link" href="/staging/update-io-manual/">Update IO Staging Manual</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -39,9 +41,10 @@
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                    data-bs-target="#collapseLayoutsIconPay" aria-expanded="false" aria-controls="collapseLayoutsIconPay">
+                    data-bs-target="#collapseLayoutsIconPay" aria-expanded="false"
+                    aria-controls="collapseLayoutsIconPay">
                     <div class="sb-nav-link-icon"><i class="fas fa-money-check-alt    "></i></div>
-                    IconPay (Under Development)
+                    IconPay Dev
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseLayoutsIconPay" aria-labelledby="headingOne"
