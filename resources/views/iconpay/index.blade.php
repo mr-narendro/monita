@@ -148,6 +148,8 @@
                                         </tr>
                                         <tr>
                                             <td>
+                                                <button type="submit" name="bill" id="bill"
+                                                    class="btn btn-danger" style="display: none;">Generate Billing</button>
                                                 <button type="submit" name="add" id="add"
                                                     class="btn btn-primary" style="display: none;">Add Piutang</button>
                                                 <button type="submit" name="edit" id="edit"
@@ -204,6 +206,8 @@
                                         <tr>
                                             <td></td>
                                             <td class="border-danger text-dark border-0">
+                                                <button type="submit" name="bill" id="bill"
+                                                    class="btn btn-danger" style="display: none;">Generate Billing</button>
                                                 <button type="submit" name="batal" id="batal"
                                                     class="btn btn-warning">Batal Piutang</button>
                                             </td>
@@ -272,19 +276,35 @@
                                 $('[name=type]').val(j[0].type)
 
 
+
                                 if (progress == 'addPiutang') {
                                     $('#buatCard').css('display', 'block')
                                     $('#judul').text('Add Piutang')
-                                    $('#add').css('display', 'block')
+                                    // $('#bill').css('display', 'block')
+                                    $('#add').css('display', 'none')
                                     $('#edit').css('display', 'none')
                                 } else if (progress == 'editPiutang') {
                                     $('#buatCard').css('display', 'block')
                                     $('#judul').text('Edit Piutang')
-                                    $('#edit').css('display', 'block')
-                                    $('#add').css('display', 'none')
+                                    $('#bill').css('display', 'block')
+
+                                    $('#bill').click(function(){
+                                        var res = confirm("Apakah anda yakin ingin generate billing ???")
+                                        if(res){
+                                            alert('berhasil generate billing')
+                                            $('#bill').css('display', 'none')
+                                            $('#edit').css('display', 'block')
+                                        }else{
+                                            alert('gagal')
+                                        }
+
+                                    });
+
                                 } else if (progress == 'batalPiutang') {
                                     $('#buatCard').css('display', 'none')
                                     $('#batalCard').css('display', 'block')
+                                    // $('#bill').css('display', 'block')
+                                    $('#batal').css('display', 'none')
                                 } else {
                                     alert('silahkan pilih progressnya !!!')
                                     return false
