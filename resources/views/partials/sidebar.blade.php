@@ -51,7 +51,7 @@
                 <div class="collapse" id="collapseLayoutsIconPay" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/iconpay/">Piutang</a>
+                        <a class="nav-link" href="/iconpay/">Add Piutang</a>
                     </nav>
                 </div>
                 @endif
