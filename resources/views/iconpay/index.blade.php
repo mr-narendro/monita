@@ -7,13 +7,12 @@
             <hr>
 
             <select name="progress" id="progress" class="bg-white form-control form-control-inline" required>
-                <option value="">--Pilih Progress--</option>
-                <option value="addPiutang">Add Piutang</option>
-                <option value="editPiutang">Edit Piutang</option>
-                <option value="batalPiutang">Batal Piutang</option>
+                <option value="">--Pilih--</option>
+                <option value="CRMID">CRM ID</option>
+                <option value="ID_PELANGGAN">ID PELANGGAN</option>
+                <option value="KODE_INVOICE">NO INVOICE</option>
             </select>
-            <input type="text" name="idPel" id="idPel" placeholder="Masukan Id Pelanggan"
-                class="form-control form-control-inline" required>
+            <input type="text" name="idPel" id="idPel" class="form-control form-control-inline" required>
             <button type="submit" name="submit" id="cari" class="btn btn-info form-control-inline">Cari</button>
             <br>
             <div class="mt-lg-5" id="buatCard" style="display: none;">
@@ -29,133 +28,130 @@
                                 <div class="col-md-6" style="border-right: 5px solid black">
                                     <table class="table border-bottom-1">
                                         <tr>
-                                            <td class="border-primary">No Invoice</td>
+                                            <td class="border-primary">KODE_INVOICE</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="noinvoice" id="piutang">
+                                                : <input type="text" name="KODE_INVOICE" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">No VA</td>
+                                            <td class="border-primary">ID_PELANGGAN</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="nova" id="piutang">
+                                                : <input type="text" name="ID_PELANGGAN" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">ID Pelanggan</td>
+                                            <td class="border-primary">PRODUK_NAME</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="idpel" id="piutang">
+                                                : <input type="text" name="PRODUK_NAME" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">Produk</td>
+                                            <td class="border-primary">BANDWIDTH</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="produk" id="piutang">
+                                                : <input type="text" name="BANDWIDTH" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">Add on</td>
+                                            <td class="border-primary">ADDON</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="addon" id="piutang">
+                                                : <input type="text" name="ADDON" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">thbltagihan</td>
+                                            <td class="border-primary">PERIODE_INVOICE</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="thbltagihan" id="piutang">
+                                                : <input type="text" name="PERIODE_INVOICE" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">nama</td>
+                                            <td class="border-primary">BIAYA_LAYANAN</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="nama" id="piutang">
+                                                : <input type="text" name="BIAYA_LAYANAN" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">rptag</td>
+                                            <td class="border-primary">BIAYA_ADDON</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="rptag" id="piutang">
+                                                : <input type="text" name="BIAYA_ADDON" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">rpdenda</td>
+                                            <td class="border-primary">BIAYA_PPN</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="rpdenda" id="piutang">
+                                                : <input type="text" name="BIAYA_PPN" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">rpmaterai</td>
+                                            <td class="border-primary">BIAYA_MATERAI</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="rpmaterai" id="piutang">
+                                                : <input type="text" name="BIAYA_MATERAI" id="piutang">
                                             </td>
                                         </tr>
+
                                     </table>
                                 </div>
                                 <div class="col-md-6">
                                     <table class="table border-bottom-1">
                                         <tr>
-                                            <td class="border-primary">rpadmin</td>
+                                            <td class="border-primary">BIAYA_PENYESUAIAN</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="rpadmin" id="piutang">
+                                                : <input type="text" name="BIAYA_PENYESUAIAN" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">rpadminpartner</td>
+                                            <td class="border-primary">BIAYA_RESTITUSI</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="rpadminpartner" id="piutang">
+                                                : <input type="text" name="BIAYA_RESTITUSI" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">rpadminicon</td>
+                                            <td class="border-primary">BIAYA_ADMIN</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="rpadminicon" id="piutang">
+                                                : <input type="text" name="BIAYA_ADMIN" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">tglexpired</td>
+                                            <td class="border-primary">PAYMENTCODE</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="tglexpired" id="piutang">
+                                                : <input type="text" name="PAYMENTCODE" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">paymentCode</td>
+                                            <td class="border-primary">EMAIL</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="paymentCode" id="piutang">
+                                                : <input type="text" name="EMAIL" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">alfaCode</td>
+                                            <td class="border-primary">TOTAL_HARGA_NORMAL</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="alfaCode" id="piutang">
+                                                : <input type="text" name="TOTAL_HARGA_NORMAL" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">indomartCode</td>
+                                            <td class="border-primary">CATATAN</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="indomartCode" id="piutang">
+                                                : <input type="text" name="CATATAN" id="piutang">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="border-primary">email</td>
+                                            <td class="border-primary">STATUS</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="email" id="piutang">
+                                                : <input type="text" name="STATUS" id="piutang">
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="border-primary">type</td>
-                                            <td class="border-danger text-dark">
-                                                : <input type="text" name="type" id="piutang">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
+                                        {{-- <tr>
+                                            <td align="right">
                                                 <button type="submit" name="bill" id="bill"
-                                                    class="btn btn-danger" style="display: none;">Generate Billing</button>
-                                                <button type="submit" name="add" id="add"
-                                                    class="btn btn-primary" style="display: none;">Add Piutang</button>
-                                                <button type="submit" name="edit" id="edit"
-                                                    class="btn btn-success" style="display: none;">Edit Piutang</button>
-                                            </td>
-                                            <td></td>
+                                                    class="btn btn-primary" style="display: none;">Update CRM
+                                                    Billing</button>
+                                            </td> --}}
+                                        <td>
+                                            <button type="submit" name="add" id="add" class="btn btn-primary"
+                                                style="display: none;">Add Piutang</button>
+                                            {{-- <button type="submit" name="edit" id="edit"
+                                                    class="btn btn-success" style="display: none;">Edit Piutang</button> --}}
+                                        </td>
                                         </tr>
                                     </table>
                                 </div>
@@ -166,7 +162,7 @@
             </div>
 
 
-            <div class="mt-lg-5" id="batalCard" style="display: none;">
+            {{-- <div class="mt-lg-5" id="batalCard" style="display: none;">
                 <div class="card-columns">
                     <div class="card">
                         <div class="card-header">
@@ -207,7 +203,8 @@
                                             <td></td>
                                             <td class="border-danger text-dark border-0">
                                                 <button type="submit" name="bill" id="bill"
-                                                    class="btn btn-danger" style="display: none;">Generate Billing</button>
+                                                    class="btn btn-danger" style="display: none;">Generate
+                                                    Billing</button>
                                                 <button type="submit" name="batal" id="batal"
                                                     class="btn btn-warning">Batal Piutang</button>
                                             </td>
@@ -218,7 +215,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
         </div>
@@ -244,74 +241,130 @@
                             type: "POST",
                             url: "/iconpay/cariIdPel",
                             data: {
-                                'idPel': idPel
+                                'idPel': idPel,
+                                'progress': progress
                             },
                             dataType: "json",
                             headers: {
                                 "X-CSRF-TOKEN": "{{ csrf_token() }}"
                             },
                             success: function(response) {
-                                alert('Berhasil dapat data')
                                 $('#idPel').val("")
                                 $('#progress').val("")
                                 var j = response;
-                                $('[name=nova]').val(j[0].nova)
-                                $('[name=noinvoice]').val(j[0].noinvoice)
-                                $('[name=idpel]').val(j[0].idpel)
-                                $('[name=produk]').val(j[0].produk)
-                                $('[name=addon]').val(j[0].addon)
-                                $('[name=thbltagihan]').val(j[0].thbltagihan)
-                                $('[name=nama]').val(j[0].nama)
-                                $('[name=rptag]').val(j[0].rptag)
-                                $('[name=rpdenda]').val(j[0].rpdenda)
-                                $('[name=rpmaterai]').val(j[0].rpmaterai)
-                                $('[name=rpadmin]').val(j[0].rpadmin)
-                                $('[name=rpadminpartner]').val(j[0].rpadminpartner)
-                                $('[name=rpadminicon]').val(j[0].rpadminicon)
-                                $('[name=tglexpired]').val(j[0].tglexpired)
-                                $('[name=paymentCode]').val(j[0].paymentCode)
-                                $('[name=alfaCode]').val(j[0].alfaCode)
-                                $('[name=indomartCode]').val(j[0].indomartCode)
-                                $('[name=email]').val(j[0].email)
-                                $('[name=type]').val(j[0].type)
+                                $('[name=KODE_INVOICE]').val(j[0].KODE_INVOICE)
+                                $('[name=ID_PELANGGAN]').val(j[0].ID_PELANGGAN)
+                                $('[name=PRODUK_NAME]').val(j[0].PRODUK_NAME)
+                                $('[name=BANDWIDTH]').val(j[0].BANDWIDTH)
+                                $('[name=ADDON]').val(j[0].ADDON)
+                                $('[name=PERIODE_INVOICE]').val(j[0].PERIODE_INVOICE)
+                                $('[name=BIAYA_LAYANAN]').val(j[0].BIAYA_LAYANAN)
+                                $('[name=BIAYA_ADDON]').val(j[0].BIAYA_ADDON)
+                                $('[name=BIAYA_PPN]').val(j[0].BIAYA_PPN)
+                                $('[name=BIAYA_MATERAI]').val(j[0].BIAYA_MATERAI)
+                                $('[name=BIAYA_PENYESUAIAN]').val(j[0].BIAYA_PENYESUAIAN)
+                                $('[name=BIAYA_RESTITUSI]').val(j[0].BIAYA_RESTITUSI)
+                                $('[name=BIAYA_ADMIN]').val(j[0].BIAYA_ADMIN)
+                                $('[name=PAYMENTCODE]').val(j[0].PAYMENTCODE)
+                                $('[name=EMAIL]').val(j[0].EMAIL)
+                                $('[name=TOTAL_HARGA_NORMAL]').val(j[0].TOTAL_HARGA_NORMAL)
+                                $('[name=CATATAN]').val(j[0].CATATAN)
+                                $('[name=STATUS]').val(j[0].STATUS)
+
+                                $('#buatCard').css('display', 'block')
+                                $('#judul').text('Add Piutang')
+                                $('#add').css('display', 'block')
 
 
 
-                                if (progress == 'addPiutang') {
-                                    $('#buatCard').css('display', 'block')
-                                    $('#judul').text('Add Piutang')
-                                    // $('#bill').css('display', 'block')
-                                    $('#add').css('display', 'none')
-                                    $('#edit').css('display', 'none')
-                                } else if (progress == 'editPiutang') {
-                                    $('#buatCard').css('display', 'block')
-                                    $('#judul').text('Edit Piutang')
-                                    $('#bill').css('display', 'block')
+                                // if (progress == 'addPiutang') {
+                                //     $('#buatCard').css('display', 'block')
+                                //     $('#judul').text('Add Piutang')
+                                //     // $('#bill').css('display', 'block')
+                                //     $('#add').css('display', 'none')
+                                //     $('#edit').css('display', 'none')
+                                // } else if (progress == 'editPiutang') {
+                                //     $('#buatCard').css('display', 'block')
+                                //     $('#judul').text('Update Billing CRM')
+                                //     $('#bill').css('display', 'block')
+                                //     $('#edit').css('display', 'none')
 
-                                    $('#bill').click(function(){
-                                        var res = confirm("Apakah anda yakin ingin generate billing ???")
-                                        if(res){
-                                            alert('berhasil generate billing')
-                                            $('#bill').css('display', 'none')
-                                            $('#edit').css('display', 'block')
-                                        }else{
-                                            alert('gagal')
-                                        }
+                                //     $('#bill').off('click').click(function() {
+                                //         var KODE_INVOICE = $('[name=KODE_INVOICE]').val()
+                                //         var PRODUK_NAME = $('[name=PRODUK_NAME]').val()
+                                //         var BANDWIDTH = $('[name=BANDWIDTH]').val()
+                                //         var ADDON = $('[name=ADDON]').val()
+                                //         var PERIODE_INVOICE = $('[name=PERIODE_INVOICE]').val()
+                                //         var BIAYA_LAYANAN = $('[name=BIAYA_LAYANAN]').val()
+                                //         var BIAYA_ADDON = $('[name=BIAYA_ADDON]').val()
+                                //         var BIAYA_PPN = $('[name=BIAYA_PPN]').val()
+                                //         var BIAYA_MATERAI = $('[name=BIAYA_MATERAI]').val()
+                                //         var BIAYA_PENYESUAIAN = $('[name=BIAYA_PENYESUAIAN]').val()
+                                //         var BIAYA_RESTITUSI = $('[name=BIAYA_RESTITUSI]').val()
+                                //         var BIAYA_ADMIN = $('[name=BIAYA_ADMIN]').val()
+                                //         var PAYMENTCODE = $('[name=PAYMENTCODE]').val()
+                                //         var EMAIL = $('[name=EMAIL]').val()
+                                //         var TOTAL_HARGA_NORMAL = $('[name=TOTAL_HARGA_NORMAL]').val()
+                                //         var CATATAN = $('[name=CATATAN]').val()
 
-                                    });
+                                //         let res = confirm(
+                                //             "Apakah anda yakin ingin generate billing ???"
+                                //             )
+                                //         if (res) {
+                                //             $.ajax({
+                                //                 type: "POST",
+                                //                 url: "/iconpay/updateBillingCRM",
+                                //                 data: {
+                                //                     'KODE_INVOICE' : KODE_INVOICE,
+                                //                     'PRODUK_NAME' : PRODUK_NAME,
+                                //                     'BANDWIDTH' : BANDWIDTH,
+                                //                     'ADDON' : ADDON,
+                                //                     'PERIODE_INVOICE' : PERIODE_INVOICE,
+                                //                     'BIAYA_LAYANAN' : BIAYA_LAYANAN,
+                                //                     'BIAYA_ADDON' : BIAYA_ADDON,
+                                //                     'BIAYA_PPN' : BIAYA_PPN,
+                                //                     'BIAYA_MATERAI' : BIAYA_MATERAI,
+                                //                     'BIAYA_PENYESUAIAN' : BIAYA_PENYESUAIAN,
+                                //                     'BIAYA_RESTITUSI' : BIAYA_RESTITUSI,
+                                //                     'BIAYA_ADMIN' : BIAYA_ADMIN,
+                                //                     'PAYMENTCODE' : PAYMENTCODE,
+                                //                     'EMAIL' : EMAIL,
+                                //                     'TOTAL_HARGA_NORMAL' : TOTAL_HARGA_NORMAL,
+                                //                     'CATATAN' : CATATAN
 
-                                } else if (progress == 'batalPiutang') {
-                                    $('#buatCard').css('display', 'none')
-                                    $('#batalCard').css('display', 'block')
-                                    // $('#bill').css('display', 'block')
-                                    $('#batal').css('display', 'none')
-                                } else {
-                                    alert('silahkan pilih progressnya !!!')
-                                    return false
-                                }
+                                //                 },
+                                //                 dataType: "json",
+                                //                 headers: {
+                                //                     "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                                //                 },
+                                //                 success: function(response) {
+                                //                     alert('berhasil generate billing')
+                                //                     $('#bill').prop('disabled', true);
+                                //                     $('#edit').css('display', 'block')
+                                //                 }
+                                //             });
+                                //             // alert('berhasil generate billing')
+                                //             //         $('#bill').prop('disabled', true);
+                                //             //         $('#edit').css('display', 'block')
+                                //         } else {
+                                //             alert('gagal')
+                                //         }
+
+                                //     });
+
+                                // } else if (progress == 'batalPiutang') {
+                                //     $('#buatCard').css('display', 'none')
+                                //     $('#batalCard').css('display', 'block')
+                                //     // $('#bill').css('display', 'block')
+                                //     $('#batal').css('display', 'none')
+                                // } else {
+                                //     alert('silahkan pilih progressnya !!!')
+                                //     return false
+                                // }
                             },
                             error: function(response) {
-                                alert('gak tembus boss')
+                                alert('tagihan terakhir belum digenerate')
+                                window.location.reload();
                             }
                         });
                     }
@@ -323,171 +376,136 @@
 
                 //add piutang
                 $('#add').click(function() {
-                    var nova = $('[name=nova]').val()
-                    var noinvoice = $('[name=noinvoice]').val()
-                    var idpel = $('[name=idpel]').val()
-                    var produk = $('[name=produk]').val()
-                    var addon = $('[name=addon]').val()
-                    var thbltagihan = $('[name=thbltagihan]').val()
-                    var nama = $('[name=nama]').val()
-                    var rptag = $('[name=rptag]').val()
-                    var rpdenda = $('[name=rpdenda]').val()
-                    var rpmaterai = $('[name=rpmaterai]').val()
-                    var rpadmin = $('[name=rpadmin]').val()
-                    var rpadminpartner = $('[name=rpadminpartner]').val()
-                    var rpadminicon = $('[name=rpadminicon]').val()
-                    var tglexpired = $('[name=tglexpired]').val()
-                    var paymentCode = $('[name=paymentCode]').val()
-                    var alfaCode = $('[name=alfaCode]').val()
-                    var indomartCode = $('[name=indomartCode]').val()
-                    var email = $('[name=email]').val()
-                    var type = $('[name=type]').val()
+                    var idpel = $('[name=ID_PELANGGAN]').val()
+                    var noinvoice = $('[name=KODE_INVOICE]').val()
+                    var con = confirm("Apakah yakin melakukan add piutang ???")
+                    if (con) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/iconpay/addPiutang",
+                            data: {
+                                'noinvoice': noinvoice,
+                                'idpel': idpel
+                            },
+                            dataType: "json",
+                            headers: {
+                                "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                            },
+                            success: function(response) {
+                                var r = response
+                                alert(r.keterangan)
+                                $('#idPel').val("")
+                                $('#progress').val("")
+                                var j = response;
+                                var controller = "Monita/SendInvoiceToIconpay"
+                                var jenistransaksi = "addPiutang"
+                                var koderc = j.kode
+                                var keterangan = j.keterangan
+                                var pt = $('[name=PERIODE_INVOICE]').val()
+                                var periodetagihan = pt.substr(0, 7).replace('-', '')
+                                var kdinvoice = noinvoice
+                                var data = JSON.stringify(response)
 
-                    $.ajax({
-                        type: "POST",
-                        url: "/iconpay/addPiutang",
-                        data: {
-                            'nova' : nova,
-                            'noinvoice' : noinvoice,
-                            'idpel' : idpel,
-                            'produk' : produk,
-                            'addon' : addon,
-                            'thbltagihan' : thbltagihan,
-                            'nama' : nama,
-                            'rptag' : rptag,
-                            'rpdenda' : rpdenda,
-                            'rpmaterai' : rpmaterai,
-                            'rpadmin' : rpadmin,
-                            'rpadminpartner' : rpadminpartner,
-                            'rpadminicon' : rpadminicon,
-                            'tglexpired' : tglexpired,
-                            'paymentCode' : paymentCode,
-                            'alfaCode' : alfaCode,
-                            'indomartCode' : indomartCode,
-                            'email' : email,
-                            'type' : type
-                        },
-                        dataType: "json",
-                        headers: {
-                            "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            alert('Berhasil add piutang')
-                            $('#idPel').val("")
-                            $('#progress').val("")
-                            // window.location.reload()
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/iconpay/saveLogIconPay",
+                                    data: {
+                                        'controller': controller,
+                                        'jenisTransaksi': jenistransaksi,
+                                        'kodeRc': koderc,
+                                        'keterangan': keterangan,
+                                        'idpel': idpel,
+                                        'periodeTagihan': periodetagihan,
+                                        'kodeInvoice': kdinvoice,
+                                        'data': data
+                                    },
+                                    dataType: "json",
+                                    headers: {
+                                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                                    },
+                                    success: function(response) {
 
-                        },
-                        error: function(response) {
-                            console.log(response);
-                            alert('gak tembus boss')
-                            // window.location.reload()
-                        }
-                    });
+                                    },
+                                });
+
+                                // window.location.reload(
+
+                            },
+                            error: function(response) {
+                                alert('gagal add piutang')
+                                // window.location.reload()
+                            }
+                        });
+                    } else {
+                        return false;
+                    }
+
                 });
 
                 //edit piutang
-                $('#edit').click(function() {
-                    var nova = $('[name=nova]').val()
-                    var noinvoice = $('[name=noinvoice]').val()
-                    var idpel = $('[name=idpel]').val()
-                    var produk = $('[name=produk]').val()
-                    var addon = $('[name=addon]').val()
-                    var thbltagihan = $('[name=thbltagihan]').val()
-                    var nama = $('[name=nama]').val()
-                    var rptag = $('[name=rptag]').val()
-                    var rpdenda = $('[name=rpdenda]').val()
-                    var rpmaterai = $('[name=rpmaterai]').val()
-                    var rpadmin = $('[name=rpadmin]').val()
-                    var rpadminpartner = $('[name=rpadminpartner]').val()
-                    var rpadminicon = $('[name=rpadminicon]').val()
-                    var tglexpired = $('[name=tglexpired]').val()
-                    var paymentCode = $('[name=paymentCode]').val()
-                    var alfaCode = $('[name=alfaCode]').val()
-                    var indomartCode = $('[name=indomartCode]').val()
-                    var email = $('[name=email]').val()
-                    var type = $('[name=type]').val()
+                // $('#edit').click(function() {
+                //     var idpel = $('[name=ID_PELANGGAN]').val()
+                //     $.ajax({
+                //         type: "POST",
+                //         url: "/iconpay/editPiutang",
+                //         dataType: "json",
+                //         data: {
+                //             'idpel' : idpel
+                //         },
+                //         headers: {
+                //             "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                //         },
+                //         success: function(response) {
+                //             console.log(response);
+                //             alert('Berhasil edit piutang')
+                //             $('#idPel').val("")
+                //             $('#progress').val("")
+                //             // window.location.reload()
 
-                    $.ajax({
-                        type: "POST",
-                        url: "/iconpay/editPiutang",
-                        data: {
-                            'nova' : nova,
-                            'noinvoice' : noinvoice,
-                            'idpel' : idpel,
-                            'produk' : produk,
-                            'addon' : addon,
-                            'thbltagihan' : thbltagihan,
-                            'nama' : nama,
-                            'rptag' : rptag,
-                            'rpdenda' : rpdenda,
-                            'rpmaterai' : rpmaterai,
-                            'rpadmin' : rpadmin,
-                            'rpadminpartner' : rpadminpartner,
-                            'rpadminicon' : rpadminicon,
-                            'tglexpired' : tglexpired,
-                            'paymentCode' : paymentCode,
-                            'alfaCode' : alfaCode,
-                            'indomartCode' : indomartCode,
-                            'email' : email,
-                            'type' : type
-                        },
-                        dataType: "json",
-                        headers: {
-                            "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            alert('Berhasil edit piutang')
-                            $('#idPel').val("")
-                            $('#progress').val("")
-                            // window.location.reload()
+                //         },
+                //         error: function(response) {
+                //             console.log(response);
+                //             alert('gak tembus boss')
+                //             // window.location.reload()
+                //         }
+                //     });
+                // });
 
-                        },
-                        error: function(response) {
-                            console.log(response);
-                            alert('gak tembus boss')
-                            // window.location.reload()
-                        }
-                    });
-                });
+                // //batal piutang
+                // $('#batal').click(function() {
+                //     var nova = $('[name=nova]').val()
+                //     var idpel = $('[name=idpel]').val()
+                //     var thbltagihan = $('[name=thbltagihan]').val()
+                //     var alasanBatal = $('[name=alasanBatal]').val()
 
-                //batal piutang
-                $('#batal').click(function() {
-                     var nova = $('[name=nova]').val()
-                    var idpel = $('[name=idpel]').val()
-                    var thbltagihan = $('[name=thbltagihan]').val()
-                    var alasanBatal = $('[name=alasanBatal]').val()
+                //     $.ajax({
+                //         type: "POST",
+                //         url: "/iconpay/batalPiutang",
+                //         data: {
+                //             'nova': nova,
+                //             'idpel': idpel,
+                //             'thbltagihan': thbltagihan,
+                //             'alasanBatal': alasanBatal
+                //         },
+                //         dataType: "json",
+                //         headers: {
+                //             "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                //         },
+                //         success: function(response) {
+                //             console.log(response);
+                //             alert('Berhasil batal piutang')
+                //             $('#idPel').val("")
+                //             $('#progress').val("")
+                //             // window.location.reload()
 
-                    $.ajax({
-                        type: "POST",
-                        url: "/iconpay/batalPiutang",
-                        data: {
-                            'nova' : nova,
-                            'idpel' : idpel,
-                            'thbltagihan' : thbltagihan,
-                            'alasanBatal' : alasanBatal
-                        },
-                        dataType: "json",
-                        headers: {
-                            "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                        },
-                        success: function(response) {
-                            console.log(response);
-                            alert('Berhasil batal piutang')
-                            $('#idPel').val("")
-                            $('#progress').val("")
-                            // window.location.reload()
-
-                        },
-                        error: function(response) {
-                            console.log(response);
-                            alert('gak tembus boss')
-                            // window.location.reload()
-                        }
-                    });
-                });
+                //         },
+                //         error: function(response) {
+                //             console.log(response);
+                //             alert('gak tembus boss')
+                //             // window.location.reload()
+                //         }
+                //     });
+                // });
 
             });
         </script>

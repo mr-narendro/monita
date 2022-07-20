@@ -84,8 +84,10 @@ Route::middleware(['isLogin'])->group(function ()
         Route::get('/', 'IconPayController@index')->name('iconpay.index');
         Route::post('/cariIdPel','IconPayController@cariIdPel')->name('iconpay.cariIdPel');
         Route::post('/addPiutang','IconPayController@addPiutang')->name('iconpay.addPiutang');
-        Route::post('/editPiutang','IconPayController@editPiutang')->name('iconpay.editPiutang');
-        Route::post('/batalPiutang','IconPayController@batalPiutang')->name('iconpay.batalPiutang');
+        // Route::post('/editPiutang','IconPayController@editPiutang')->name('iconpay.editPiutang');
+        // Route::post('/batalPiutang','IconPayController@batalPiutang')->name('iconpay.batalPiutang');
+        // Route::post('/updateBillingCRM','IconPayController@updateBillingCRM')->name('iconpay.updateBillingCRM');
+        Route::post('/saveLogIconPay','IconPayController@saveLogIconPay')->name('iconpay.saveLogIconPay');
     });
 });
 

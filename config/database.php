@@ -124,6 +124,19 @@ return [
             'prefix_indexes' => true,
         ],
 
+        'sarma_dev' => [
+            'driver' => 'sqlsrv',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST_SARMA_DEV', 'localhost'),
+            'port' => env('DB_PORTT_SARMA_DEV', '1433'),
+            'database' => env('DB_DATABASE_SARMA_DEV', 'forge'),
+            'username' => env('DB_USERNAME_SARMA_DEV', 'forge'),
+            'password' => env('DB_PASSWORD_SARMA_DEV', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+        ],
+
         // 'dbo_dev' => [
         //     'driver' => 'mysql',
         //     'url' => env('DATABASE_URL'),
