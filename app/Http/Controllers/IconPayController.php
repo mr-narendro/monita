@@ -37,7 +37,7 @@ class IconPayController extends Controller
 
         $add = DB::connection('sqlsrv')
         ->select(
-        DB::raw("SELECT * from View_CekTagihan vct where vct.idpel = '" . $idpel . "' OR vct.noinvoice = '". $noinvoice ."'")
+        DB::raw("SELECT * from View_CekTagihan vct where vct.idpel = '" . $idpel . "' AND vct.noinvoice = '". $noinvoice ."'")
         );
 
         $adds = $add[0];
