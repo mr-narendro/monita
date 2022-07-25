@@ -67,6 +67,7 @@ class IconPayController extends Controller
         $password = "icon123/";
 
         // --COBA DI SARMA DEV
+        /*
         $response = Http::withHeaders([
             'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
             ])->post("http://10.14.152.45:8282/stroomnetcrm/addPiutang", [
@@ -91,31 +92,31 @@ class IconPayController extends Controller
             'type' => $type
 
         ]);
+        */
 
-        // $response = Http::withHeaders([
-        //     'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
-        // ])->post(env("ICONPAY_ADDPIUTANG_PRD", ""), [
-        //     'nova' => $nova,
-        //     'noinvoice' => $noinvoice,
-        //     'idpel' => $idpel,
-        //     'produk' => $produk,
-        //     'addon' => $addon,
-        //     'thbltagihan' => $thbltagihan,
-        //     'nama' => $nama,
-        //     'rptag' => $rptag,
-        //     'rpdenda' => $rpdenda,
-        //     'rpmaterai' => $rpmaterai,
-        //     'rpadmin' => $rpadmin,
-        //     'rpadminpartner' => $rpadminpartner,
-        //     'rpadminicon' => $rpadminicon,
-        //     'tglexpired' => $tglexpired,
-        //     'paymentCode' => $paymentCode,
-        //     'alfaCode' => $alfaCode,
-        //     'indomartCode' => $indomartCode,
-        //     'email' => $email,
-        //     'type' => $type
-
-        // ]);
+        $response = Http::withHeaders([
+            'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
+        ])->post(env("ICONPAY_ADDPIUTANG_PRD", ""), [
+            'nova' => $nova,
+            'noinvoice' => $noinvoice,
+            'idpel' => $idpel,
+            'produk' => $produk,
+            'addon' => $addon,
+            'thbltagihan' => $thbltagihan,
+            'nama' => $nama,
+            'rptag' => $rptag,
+            'rpdenda' => $rpdenda,
+            'rpmaterai' => $rpmaterai,
+            'rpadmin' => $rpadmin,
+            'rpadminpartner' => $rpadminpartner,
+            'rpadminicon' => $rpadminicon,
+            'tglexpired' => $tglexpired,
+            'paymentCode' => $paymentCode,
+            'alfaCode' => $alfaCode,
+            'indomartCode' => $indomartCode,
+            'email' => $email,
+            'type' => $type
+        ]);
 
         return $response;
     }
@@ -192,6 +193,7 @@ class IconPayController extends Controller
         $password = "icon123/";
 
         // --COBA DI SARMA DEV
+        /*
         $response = Http::withHeaders([
             'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
         ])->post("http://10.14.152.45:8282/stroomnetcrm/editPiutang", [
@@ -216,30 +218,32 @@ class IconPayController extends Controller
             'type' => $type
 
         ]);
-        // $response = Http::withHeaders([
-        //     'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
-        // ])->post(env("ICONPAY_EDITPIUTANG_PRD", ""), [
-        //     'nova' => $nova,
-        //     'noinvoice' => $noinvoice,
-        //     'idpel' => $idpel,
-        //     'produk' => $produk,
-        //     'addon' => $addon,
-        //     'thbltagihan' => $thbltagihan,
-        //     'nama' => $nama,
-        //     'rptag' => $rptag,
-        //     'rpdenda' => $rpdenda,
-        //     'rpmaterai' => $rpmaterai,
-        //     'rpadmin' => $rpadmin,
-        //     'rpadminpartner' => $rpadminpartner,
-        //     'rpadminicon' => $rpadminicon,
-        //     'tglexpired' => $tglexpired,
-        //     'paymentCode' => $paymentCode,
-        //     'alfaCode' => $alfaCode,
-        //     'indomartCode' => $indomartCode,
-        //     'email' => $email,
-        //     'type' => $type
+        */
 
-        // ]);
+        $response = Http::withHeaders([
+            'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
+        ])->post(env("ICONPAY_EDITPIUTANG_PRD", ""), [
+            'nova' => $nova,
+            'noinvoice' => $noinvoice,
+            'idpel' => $idpel,
+            'produk' => $produk,
+            'addon' => $addon,
+            'thbltagihan' => $thbltagihan,
+            'nama' => $nama,
+            'rptag' => $rptag,
+            'rpdenda' => $rpdenda,
+            'rpmaterai' => $rpmaterai,
+            'rpadmin' => $rpadmin,
+            'rpadminpartner' => $rpadminpartner,
+            'rpadminicon' => $rpadminicon,
+            'tglexpired' => $tglexpired,
+            'paymentCode' => $paymentCode,
+            'alfaCode' => $alfaCode,
+            'indomartCode' => $indomartCode,
+            'email' => $email,
+            'type' => $type
+
+        ]);
 
         return $response;
     }
