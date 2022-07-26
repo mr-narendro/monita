@@ -333,7 +333,10 @@
                                     }
                                 });
                             }else{
-                                alert('gagal update')
+                                var z = response
+                                var h = $(z)
+                                var a = h.find("MESSAGE").text()
+                                alert('gagal update - '+a)
                             }
 
 
