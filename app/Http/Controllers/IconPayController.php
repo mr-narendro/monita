@@ -290,7 +290,8 @@ class IconPayController extends Controller
             'PERIODETAGIHAN' => $PERIODETAGIHAN,
             'CREATEDON' => date('Y-m-d h:m:s'),
             'KODEINVOICE' => $KODEINVOICE,
-            'DATA' => $DATA
+            'DATA' => $DATA,
+            'CREATEDBY' => ''
         ]);
     }
 }
