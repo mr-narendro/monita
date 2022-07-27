@@ -253,7 +253,7 @@
                                 $('#progress').val("")
                                 var j = response;
                                 $('[name=KODE_INVOICE]').val(j[0].KODE_INVOICE)
-                                $('[name=ID_PELANGGAN]').val(j[0].ID_PELANGGAN)
+                                $('[name=ID_PELANGGAN]').val(j[0].CRMID)
                                 $('[name=PRODUK_NAME]').val(j[0].PRODUK_NAME)
                                 $('[name=BANDWIDTH]').val(j[0].BANDWIDTH)
                                 $('[name=ADDON]').val(j[0].ADDON)
@@ -432,6 +432,7 @@
 
                             },
                             error: function(response) {
+                                console.log(response)
                                 alert('gagal add piutang')
                                 // window.location.reload()
                             }
