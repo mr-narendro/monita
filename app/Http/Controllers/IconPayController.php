@@ -424,7 +424,7 @@ class IconPayController extends Controller
         $KODEINVOICE = $request->kodeInvoice;
         $DATA = $request->data;
 
-        DB::connection('sqlsrv')->table('Tbl_LogTrxIconpay')->insert([
+        DB::connection('sarma_dev')->table('Tbl_LogTrxIconpay')->insert([
             'CONTROLLER' => $CONTROLLER,
             'JENISTRANSAKSI' => $JENISTRANSAKSI,
             'KODERC' => $KODERC,
@@ -434,7 +434,19 @@ class IconPayController extends Controller
             'CREATEDON' => date('Y-m-d h:m:s'),
             'KODEINVOICE' => $KODEINVOICE,
             'DATA' => $DATA,
-            'CREATEDBY' => ''
         ]);
+
+        // DB::connection('sqlsrv')->table('Tbl_LogTrxIconpay')->insert([
+        // 'CONTROLLER' => $CONTROLLER,
+        // 'JENISTRANSAKSI' => $JENISTRANSAKSI,
+        // 'KODERC' => $KODERC,
+        // 'KETERANGAN' => $KETERANGAN,
+        // 'IDPELANGGAN' => $IDPELANGGAN,
+        // 'PERIODETAGIHAN' => $PERIODETAGIHAN,
+        // 'CREATEDON' => date('Y-m-d h:m:s'),
+        // 'KODEINVOICE' => $KODEINVOICE,
+        // 'DATA' => $DATA,
+        // 'CREATEDBY' => ''
+        // ]);
     }
 }
