@@ -3,7 +3,7 @@
 @section('container')
     <main>
         <div class="container px-4">
-            <h1 class="mt-4">IconPay - Progress Piutang</h1>
+            <h1 class="mt-4">IconPay - Add Piutang</h1>
             <hr>
 
             <select name="progress" id="progress" class="bg-white form-control form-control-inline" required>

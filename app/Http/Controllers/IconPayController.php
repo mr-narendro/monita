@@ -30,7 +30,7 @@ class IconPayController extends Controller
         $idPel = $request->idPel;
         $type = $request->progress;
 
-        $cariIdPel = DB::connection('sarma_dev')
+        $cariIdPel = DB::connection('sqlsrv')
             ->select(
                 DB::raw("SELECT ID, KODE_VA, KODE_INVOICE, ID_PELANGGAN, PRODUK_NAME, BANDWIDTH, ADDON, PERIODE_INVOICE, BIAYA_LAYANAN, BIAYA_ADDON, BIAYA_PPN, BIAYA_MATERAI, BIAYA_PENYESUAIAN, BIAYA_RESTITUSI, BIAYA_ADMIN, PAYMENTCODE,CRMID, EMAIL, TOTAL_HARGA_NORMAL, CATATAN, STATUS, FORMAT(PERIODE_INVOICE, 'yyyyMM') AS THBLTAGIHAN from Tbl_GenerateBilling tgb where ".$type." = '" . $idPel . "' AND tgb.STATUS = 'BELUM BAYAR'")
             );
@@ -47,7 +47,7 @@ class IconPayController extends Controller
         $noinvoice = $request->noinvoice;
         $idpel = $request->idpel;
 
-        $add = DB::connection('sarma_dev')
+        $add = DB::connection('sqlsrv')
         ->select(
         DB::raw("SELECT * from View_CekTagihan vct where vct.idpel = '" . $idpel . "' AND vct.noinvoice = '". $noinvoice ."'")
         );
@@ -81,9 +81,35 @@ class IconPayController extends Controller
 
         // --COBA DI SARMA DEV
 
+        // $response = Http::withHeaders([
+        //     'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
+        //     ])->post("http://10.14.152.45:8282/stroomnetcrm/addPiutang", [
+        //     'nova' => $nova,
+        //     'noinvoice' => $noinvoice,
+        //     'idpel' => $idpel,
+        //     'produk' => $produk,
+        //     'addon' => $addon,
+        //     'thbltagihan' => $thbltagihan,
+        //     'nama' => $nama,
+        //     'rptag' => $rptag,
+        //     'rpdenda' => $rpdenda,
+        //     'rpmaterai' => $rpmaterai,
+        //     'rpadmin' => $rpadmin,
+        //     'rpadminpartner' => $rpadminpartner,
+        //     'rpadminicon' => $rpadminicon,
+        //     'tglexpired' => $tglexpired,
+        //     'paymentCode' => $paymentCode,
+        //     'alfaCode' => $alfaCode,
+        //     'indomartCode' => $indomartCode,
+        //     'email' => $email,
+        //     'type' => $type
+
+        // ]);
+
+
         $response = Http::withHeaders([
-            'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
-            ])->post("http://10.14.152.45:8282/stroomnetcrm/addPiutang", [
+            'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
+        ])->post(env("ICONPAY_ADDPIUTANG_PRD", ""), [
             'nova' => $nova,
             'noinvoice' => $noinvoice,
             'idpel' => $idpel,
@@ -103,33 +129,7 @@ class IconPayController extends Controller
             'indomartCode' => $indomartCode,
             'email' => $email,
             'type' => $type
-
         ]);
-
-
-        // $response = Http::withHeaders([
-            // 'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
-        // ])->post(env("ICONPAY_ADDPIUTANG_PRD", ""), [
-            // 'nova' => $nova,
-            // 'noinvoice' => $noinvoice,
-            // 'idpel' => $idpel,
-            // 'produk' => $produk,
-            // 'addon' => $addon,
-            // 'thbltagihan' => $thbltagihan,
-            // 'nama' => $nama,
-            // 'rptag' => $rptag,
-            // 'rpdenda' => $rpdenda,
-            // 'rpmaterai' => $rpmaterai,
-            // 'rpadmin' => $rpadmin,
-            // 'rpadminpartner' => $rpadminpartner,
-            // 'rpadminicon' => $rpadminicon,
-            // 'tglexpired' => $tglexpired,
-            // 'paymentCode' => $paymentCode,
-            // 'alfaCode' => $alfaCode,
-            // 'indomartCode' => $indomartCode,
-            // 'email' => $email,
-            // 'type' => $type
-        // ]);
 
         return $response;
     }
@@ -153,7 +153,7 @@ class IconPayController extends Controller
         $TOTAL_HARGA_NORMAL = $request->TOTAL_HARGA_NORMAL;
         $CATATAN = $request->CATATAN;
 
-        $response = DB::connection('sarma_dev')->update(
+        $response = DB::connection('sqlsrv')->update(
             DB::raw(
                 "UPDATE Tbl_GenerateBilling SET PRODUK_NAME = '" . $PRODUK_NAME . "', BANDWIDTH = '" . $BANDWIDTH . "', ADDON = '" . $ADDON . "', PERIODE_INVOICE = '" . $PERIODE_INVOICE . "', BIAYA_LAYANAN = '" . $BIAYA_LAYANAN . "', BIAYA_ADDON = '" . $BIAYA_ADDON . "',
                 BIAYA_PPN = '" . $BIAYA_PPN . "',
@@ -171,7 +171,7 @@ class IconPayController extends Controller
 
     public function editInvoiceBilling($request)
     {
-        $oldInvoice = DB::connection('sarma_dev')->select(
+        $oldInvoice = DB::connection('sqlsrv')->select(
             DB::raw("SELECT * FROM Tbl_GenerateBilling WHERE KODE_INVOICE='".$request->kodeInvoice."'")
         );
 
@@ -182,7 +182,7 @@ class IconPayController extends Controller
         try{
             $newKodeInvoice = str_replace("INV", "CN", $request->kodeInvoice);
             print_r($newKodeInvoice);
-            DB::connection('sarma_dev')->table('Tbl_GenerateBilling')->insert([
+            DB::connection('sqlsrv')->table('Tbl_GenerateBilling')->insert([
             'KODE_INVOICE' => $newKodeInvoice,
             'ID_PELANGGAN' => $invoice->ID_PELANGGAN,
             'NAMA_PELANGGAN' => $invoice->NAMA_PELANGGAN,
@@ -249,7 +249,7 @@ class IconPayController extends Controller
             'SBU' => $invoice->SBU
             ]);
 
-            DB::connection('sarma_dev')->table('Tbl_GenerateBilling')
+            DB::connection('sqlsrv')->table('Tbl_GenerateBilling')
             ->where('KODE_INVOICE', $request->kodeInvoice)
             ->update([
             'ISCANCEL' => 1,
@@ -283,7 +283,7 @@ class IconPayController extends Controller
         $editInvoice = $this->editInvoiceBilling($request);
 
         if($editInvoice['success'] == true){
-            $edits = DB::connection('sarma_dev')
+            $edits = DB::connection('sqlsrv')
             ->select(
                 DB::raw("SELECT * from View_CekTagihan vct where vct.noinvoice = '" . $request->kodeInvoice . "'")
             );
@@ -312,9 +312,33 @@ class IconPayController extends Controller
             $password = "icon123/";
 
             // --COBA DI SARMA DEV
+            // $response = Http::withHeaders([
+            // 'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
+            // ])->post("http://10.14.152.45:8282/stroomnetcrm/editPiutang", [
+            // 'nova' => $nova,
+            // 'noinvoice' => $noinvoice,
+            // 'idpel' => $idpel,
+            // 'produk' => $produk,
+            // 'addon' => $addon,
+            // 'thbltagihan' => $thbltagihan,
+            // 'nama' => $nama,
+            // 'rptag' => $rptag,
+            // 'rpdenda' => $rpdenda,
+            // 'rpmaterai' => $rpmaterai,
+            // 'rpadmin' => $rpadmin,
+            // 'rpadminpartner' => $rpadminpartner,
+            // 'rpadminicon' => $rpadminicon,
+            // 'tglexpired' => $tglexpired,
+            // 'paymentCode' => $paymentCode,
+            // 'alfaCode' => $alfaCode,
+            // 'indomartCode' => $indomartCode,
+            // 'email' => $email,
+            // 'type' => $type
+            // ]);
+
             $response = Http::withHeaders([
-            'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
-            ])->post("http://10.14.152.45:8282/stroomnetcrm/editPiutang", [
+            'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
+            ])->post(env("ICONPAY_EDITPIUTANG_PRD", ""), [
             'nova' => $nova,
             'noinvoice' => $noinvoice,
             'idpel' => $idpel,
@@ -337,29 +361,6 @@ class IconPayController extends Controller
             ]);
 
             return $response;
-            // $response = Http::withHeaders([
-            // 'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
-            // ])->post(env("ICONPAY_EDITPIUTANG_PRD", ""), [
-            // 'nova' => $nova,
-            // 'noinvoice' => $noinvoice,
-            // 'idpel' => $idpel,
-            // 'produk' => $produk,
-            // 'addon' => $addon,
-            // 'thbltagihan' => $thbltagihan,
-            // 'nama' => $nama,
-            // 'rptag' => $rptag,
-            // 'rpdenda' => $rpdenda,
-            // 'rpmaterai' => $rpmaterai,
-            // 'rpadmin' => $rpadmin,
-            // 'rpadminpartner' => $rpadminpartner,
-            // 'rpadminicon' => $rpadminicon,
-            // 'tglexpired' => $tglexpired,
-            // 'paymentCode' => $paymentCode,
-            // 'alfaCode' => $alfaCode,
-            // 'indomartCode' => $indomartCode,
-            // 'email' => $email,
-            // 'type' => $type
-            // ]);
         } else {
             return $editInvoice;
         }
@@ -377,23 +378,23 @@ class IconPayController extends Controller
         $username = "stroomnet";
         $password = "icon123/";
 
-        $response = Http::withHeaders([
-        'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
-        ])->post("http://10.14.152.45:8282/stroomnetcrm/batalPiutang", [
-            'nova' => $nova,
-            'idpel' => $idpel,
-            'thbltagihan' => $thbltagihan,
-            'alasanBatal' => $alasanBatal
-        ]);
-        // //echo json_encode($idpel);
         // $response = Http::withHeaders([
-        //     'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
-        // ])->post(env("ICONPAY_BATALPIUTANG_PRD", ""), [
+        // 'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
+        // ])->post("http://10.14.152.45:8282/stroomnetcrm/batalPiutang", [
         //     'nova' => $nova,
         //     'idpel' => $idpel,
         //     'thbltagihan' => $thbltagihan,
         //     'alasanBatal' => $alasanBatal
         // ]);
+        // //echo json_encode($idpel);
+        $response = Http::withHeaders([
+            'Authorization' => 'Basic ' . env("ICONPAY_BEARER_TOKEN_PRD", ""),
+        ])->post(env("ICONPAY_BATALPIUTANG_PRD", ""), [
+            'nova' => $nova,
+            'idpel' => $idpel,
+            'thbltagihan' => $thbltagihan,
+            'alasanBatal' => $alasanBatal
+        ]);
 
         return $response;
     }
@@ -404,7 +405,7 @@ class IconPayController extends Controller
         $idBilling = $request->idbilling;
         $alasanBatal = $request->alasanBatal;
 
-        DB::connection('sarma_dev')->table('Tbl_GenerateBilling')
+        DB::connection('sqlsrv')->table('Tbl_GenerateBilling')
         ->where('ID', $idBilling)
         ->update([
         'ISCANCEL' => 1,
