@@ -444,7 +444,7 @@ class IconPayController extends Controller
         'KETERANGAN' => $KETERANGAN,
         'IDPELANGGAN' => $IDPELANGGAN,
         'PERIODETAGIHAN' => $PERIODETAGIHAN,
-        'CREATEDON' => date('Y-m-d h:m:s'),
+        'CREATEDON' => date('Y-m-d H:i:s'),
         'KODEINVOICE' => $KODEINVOICE,
         'DATA' => $DATA,
         'CREATEDBY' => 'IT PIKET'
