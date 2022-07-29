@@ -428,13 +428,13 @@
                                     },
                                 });
 
-                                // window.location.reload(
+                                window.location.reload()
 
                             },
                             error: function(response) {
                                 console.log(response)
                                 alert('gagal add piutang')
-                                // window.location.reload()
+                                window.location.reload()
                             }
                         });
                     } else {
