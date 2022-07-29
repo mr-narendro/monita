@@ -424,6 +424,7 @@
                                         "X-CSRF-TOKEN": "{{ csrf_token() }}"
                                     },
                                     success: function(response) {
+                                        alert('save log sukses')
                                         window.location.reload()
                                     }
                                 });
