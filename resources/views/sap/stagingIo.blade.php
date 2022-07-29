@@ -346,7 +346,10 @@
 
                         },
                         error: function(response) {
-                            alert('gagal lempar ke sap')
+                             var z = response
+                            var h = $(z)
+                            var a = h.find("MESSAGE").text()
+                            alert('gagal lempar ke sap : '+a)
                             // window.location.reload()
                         }
                     });
