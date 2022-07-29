@@ -424,11 +424,11 @@
                                         "X-CSRF-TOKEN": "{{ csrf_token() }}"
                                     },
                                     success: function(response) {
-
-                                    },
+                                        window.location.reload()
+                                    }
                                 });
 
-                                window.location.reload()
+
 
                             },
                             error: function(response) {
