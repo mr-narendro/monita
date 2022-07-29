@@ -437,7 +437,7 @@ class IconPayController extends Controller
         //     'DATA' => $DATA,
         // ]);
 
-        DB::connection('sqlsrv')->table('Tbl_LogTrxIconpay')->insert([
+        $response = DB::connection('sqlsrv')->table('Tbl_LogTrxIconpay')->insert([
         'CONTROLLER' => $CONTROLLER,
         'JENISTRANSAKSI' => $JENISTRANSAKSI,
         'KODERC' => $KODERC,
@@ -449,5 +449,7 @@ class IconPayController extends Controller
         'DATA' => $DATA,
         'CREATEDBY' => 'IT PIKET'
         ]);
+
+        return $response;
     }
 }
