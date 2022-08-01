@@ -410,7 +410,8 @@ class IconPayController extends Controller
         ->update([
         'ISCANCEL' => 1,
         'TGL_CANCEL' => date('Y-m-d H:i:s'),
-        'CATATAN' =>  $alasanBatal
+        'CATATAN' =>  $alasanBatal,
+        'STATUS' => "BATAL"
         ]);
     }
 
