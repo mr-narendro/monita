@@ -222,6 +222,26 @@ class StagingController extends Controller
                         } else {
                             echo "ada kesalahan :(";
                         }
+                    }else if ($produk == '' AND $bandwidth == '') {
+                    $updateProd = DB::connection('dbo')->update(
+                    DB::raw("UPDATE a SET a.swo_ProductNameId = b.swo_product_findim FROM
+                    swo_projectActivationBase a
+                    LEFT JOIN swo_productlineitemBase b ON b.new_serviceid = a.swo_serviceid
+                    LEFT JOIN swo_serviceidBase c ON c.swo_serviceidId = a.swo_serviceid
+                    WHERE a.swo_ProjectActivatID = '" . $pa . "'")
+                    );
+
+                    $updateBW = DB::connection('sqlsrv')->statement("EXEC SP_UPDATE_PRODUCT_BW @_NOPA =
+                    '" . $pa . "'");
+
+                    if ($updateProd == TRUE AND $updateBW == TRUE) {
+                    echo "<script>
+                        alert('berhasil insert produk')
+                    </script>";
+                    return redirect()->route('staging.index');
+                    } else {
+                    echo "ada kesalahan :(";
+                    }
                     }
                     // return redirect()->route('staging.index');
                 } elseif ($produk != '') {
