@@ -236,7 +236,7 @@ class StagingController extends Controller
 
                     if ($updateProd == TRUE AND $updateBW == TRUE) {
                     echo "<script>
-                        alert('berhasil insert produk')
+                        alert('berhasil insert produk dan bandwith')
                     </script>";
                     return redirect()->route('staging.index');
                     } else {
