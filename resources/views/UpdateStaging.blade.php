@@ -69,7 +69,7 @@ $('#cari').click(function(){
                             success: function(response) {
                                 var r = response;
                                 $('#tblEdit').css('display','block');
-                                $('[name=spa]').val(r[0].NO_PA)
+                                $('[name=pa]').val(r[0].NO_PA)
                                 $('[name=ptl]').val(r[0].NAMA_PTL)
                                 $('[name=io]').val(r[0].nomor_io)
                                 if(type == 'nomor_io')

@@ -23,7 +23,7 @@
                         <a class="nav-link" href="/spa/spaSync">Sync SPA Staging 193</a>
                         <a class="nav-link" href="/staging/">SPA Staging 58</a>
                         <a class="nav-link" href="/staging/add-manual/">Add Staging Manual</a>
-                        <a class="nav-link" href="/staging/update-io-manual/">Update IO Staging Manual</a>
+                        <a class="nav-link" href="/staging/update-io-manual">Update IO Staging Manual</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
