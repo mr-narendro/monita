@@ -33,6 +33,11 @@ class SapController extends Controller
         return view('sap.unlock', ['title' => 'Unlock User']);
     }
 
+    public function changePassword()
+    {
+        return view('sap.changePassword', ['title' => 'Change Password User']);
+    }
+
     public function stagingIo()
     {
         return view('sap.stagingIo', ['title' => 'Cek IO Staging']);
@@ -40,8 +45,30 @@ class SapController extends Controller
 
     public function unlockUser(Request $request)
     {
+
+        $username = 'integrasi';
+        $password = '1nts4p';
         $user = $request->user;
-        echo $user;
+
+        $response = Http::withHeaders([
+        'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
+        ])->post("http://icndbpi1.iconpln.co.id:8000/sap/bc/zapi_user/zapi_unlock?sap-client=100&username=" . $user);
+        return $response;
+    }
+
+    public function changePasswordUser(Request $request)
+    {
+
+        $username = 'integrasi';
+        $password = '1nts4p';
+        $user = $request->user;
+        $pass = $request->pass;
+        $response = Http::withHeaders([
+        'Authorization' => 'Basic ' . base64_encode($username . ':' . $password),
+        ])->post("http://icndbpi1.iconpln.co.id:8000/sap/bc/zapi_user/zapi_reset_pass?sap-client=100&username=" . $user
+        . "&password=" . $pass);
+
+        return $response;
     }
 
     public function cekIoStaging(Request $request)

@@ -73,11 +73,13 @@ Route::middleware(['isLogin'])->group(function ()
         Route::get('/', 'SapController@index')->name('sap.index');
         Route::any('/cek/{io}', 'SapController@cek')->name('sap.cek');
         Route::get('/unlock', 'SapController@unlock')->name('sap.unlock');
+        Route::get('/changePassword', 'SapController@changePassword')->name('sap.changePassword');
         Route::get('/stagingIo', 'SapController@stagingIo')->name('sap.stagingIo');
         Route::post('/stagingIo/cek', 'SapController@cekIoStaging')->name('sap.cekIoStaging');
         Route::post('/stagingIo/lemparSap', 'SapController@lemparSap')->name('sap.lemparSap');
         Route::get('/stagingIo/updateRequest/{io}', 'SapController@updateRequest')->name('sap.updateRequest');
         Route::post('/unlock/unlockUser', 'SapController@unlockUser')->name('sap.unlockUser');
+        Route::post('/changePassword/changePasswordUser', 'SapController@changePasswordUser')->name('sap.changePasswordUser');
     });
 
     Route::prefix('iconpay')->group(function () {

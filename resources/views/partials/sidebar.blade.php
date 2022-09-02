@@ -36,8 +36,9 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="/sap">Cek IO</a>
-                        {{-- <a class="nav-link" href="/sap/unlock">Unlock User</a> --}}
                         <a class="nav-link" href="/sap/stagingIo">Cek IO Staging</a>
+                        <a class="nav-link" href="/sap/unlock">Unlock User</a>
+                        <a class="nav-link" href="/sap/changePassword">Ubah Password</a>
                     </nav>
                 </div>
 
