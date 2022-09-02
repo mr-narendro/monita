@@ -53,10 +53,11 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="/iconpay/">Add Piutang</a>
-                @if (session('name') == "Alif Narendro Jati" || session('name') == "Khalid Habib" || session('name') == "Rachmat Roberto" || session('name') == "ikhsan" || session('name') == "Rico Yusman")
+                @if (session('name') == "Alif Narendro Jati" || session('name') == "Khalid Habib" || session('name') == "Rachmat Roberto" || session('name') == "ikhsan" || session('name') == "Rico Yusman" )
                         <a class="nav-link" href="/iconpay/viewEditPiutang">Edit Piutang</a>
+                @endif
                         <a class="nav-link" href="/iconpay/viewBatalPiutang">Batal Piutang</a>
-                 @endif
+
                     </nav>
                 </div>
 

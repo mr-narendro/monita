@@ -6,14 +6,14 @@
             <h1 class="mt-4">IconPay - Batal Piutang</h1>
             <hr>
 
-            <select name="progress" id="progress" class="bg-white form-control form-control-inline" required>
+            {{-- <select name="progress" id="progress" class="bg-white form-control form-control-inline" required>
                 <option value="">--Pilih--</option>
                 <option value="CRMID">CRM ID</option>
                 <option value="ID_PELANGGAN">ID PELANGGAN</option>
                 <option value="KODE_INVOICE">NO INVOICE</option>
             </select>
             <input type="text" name="idPel" id="idPel" class="form-control form-control-inline" required>
-            <button type="submit" name="submit" id="cari" class="btn btn-info form-control-inline">Cari</button>
+            <button type="submit" name="submit" id="cari" class="btn btn-info form-control-inline">Cari</button> --}}
             <br>
 
             {{-- <div class="mt-lg-5" id="buatCard" style="display: none;">
@@ -162,7 +162,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-lg-5" id="batalCard" style="display: none;">
+            <div class="mt-lg-5" id="batalCard" style="display: block;">
                 <div class="card-columns">
                     <div class="card">
                         <div class="card-header">
@@ -196,7 +196,11 @@
                                         <tr>
                                             <td class="border-primary">Alasan Batal</td>
                                             <td class="border-danger text-dark">
-                                                : <input type="text" name="alasanBatal" id="piutang">
+                                                : <select name="alasanBatal" id="piutang">
+                                                    <option value="">-- Pilih Alasan --</option>
+                                                    <option value="Double Tagihan">Double Tagihan</option>
+                                                    <option value="Koreksi Billing">Koreksi Billing</option>
+                                                </select>
                                             </td>
                                         </tr>
                                         <tr>
@@ -337,6 +341,39 @@
                     },
                     success: function(response) {
                         alert('update batal piutang berhasil')
+
+                        var j = response;
+                                var controller = "Monita/SendInvoiceToIconpay"
+                                var jenistransaksi = "batalPiutang"
+                                var koderc = j.kode
+                                var keterangan = j.keterangan
+                                var pt = $('[name=PERIODE_INVOICE]').val()
+                                var periodetagihan = pt.substr(0, 7).replace('-', '')
+                                var kdinvoice = nova
+                                var data = JSON.stringify(response)
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/iconpay/saveLogIconPay",
+                                    data: {
+                                        'controller': controller,
+                                        'jenisTransaksi': jenistransaksi,
+                                        'kodeRc': koderc,
+                                        'keterangan': keterangan,
+                                        'idpel': idpel,
+                                        'periodeTagihan': periodetagihan,
+                                        'kodeInvoice': kdinvoice,
+                                        'data': data
+                                    },
+                                    dataType: "json",
+                                    headers: {
+                                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                                    },
+                                    success: function(response) {
+                                        alert('save log sukses')
+                                        window.location.reload()
+                                    }
+                                });
                     },
                     error: function(response) {
                         alert('update batal piutang gagal')
