@@ -50,8 +50,7 @@
                                 "X-CSRF-TOKEN": "{{ csrf_token() }}"
                             },
                             success: function(response) {
-                                $('#status').text('Status : '+response.status)
-                                $('#message').text('Message : '+response.message)
+                               alert('Berhasil ubah password')
                             },
                             error: function(response) {
                                 alert('gagal')
