@@ -44,9 +44,14 @@
                                 "X-CSRF-TOKEN": "{{ csrf_token() }}"
                             },
                             success: function(response) {
-                                alert('berhasil')
-                                $('#status').text('Status : '+response.status)
-                                $('#message').text('Message : '+response.message).css('color','blue')
+                                if(response.code == 200){
+                                    alert('berhasil '+response.code)
+                                }
+                                let r = JSON.parse(response)
+
+
+                                $('#status').text('Status : '+r.status)
+                                $('#message').text('Message : '+r.message).css('color','blue')
                             },
                             error: function(response) {
                                 alert('gagal')
